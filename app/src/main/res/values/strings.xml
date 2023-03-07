@@ -1,0 +1,20 @@
+<resources>
+    <string name="analytics">Analytics</string>
+    <string name="app_name">NetmeraFintech</string>
+    <string name="balance">$5,432.43</string>
+    <string name="card_last_four_digit">•••• 2183</string>
+    <string name="current_account_lowercase">Current Account</string>
+    <string name="current_account_uppercase">CURRENT ACCOUNT</string>
+    <string name="exit">Exit</string>
+    <string name="get_started">Get started</string>
+    <string name="header">impact</string>
+    <string name="history">History</string>
+    <string name="home">Home</string>
+    <string name="manage">MANAGE</string>
+    <string name="manage_wallet">Manage your\nWallet\nwith Impact</string>
+    <string name="payments">Payments</string>
+    <string name="see_all">See all</string>
+    <string name="sign_in">Sign in</string>
+    <string name="splash_text">Find any place in the world in seconds, suited to your needs and preferences.</string>
+    <string name="transaction">Transaction</string>
+</resources>
