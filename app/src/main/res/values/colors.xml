@@ -13,7 +13,8 @@
     <color name="light_gray">#BCBCC0</color>
     <color name="linear_gradient_end">#003634A3</color>
     <color name="linear_gradient_start">#0D007AFF</color>
-    <color name="orange">#FDB202</color>
+    <color name="orange_dark">#FF9500</color>
+    <color name="orange_light">#FDB202</color>
     <color name="purple">#5856D6</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>

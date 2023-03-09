@@ -17,12 +17,12 @@ object StaticData {
     fun getContacts() = listOf(
         Contact(
             0,
-            Color.rgb(88,86, 214),
+            R.color.purple,
             "Alfredo Johnson",
         ),
         Contact(
             1,
-            Color.rgb(255,149, 0),
+            R.color.orange_dark,
             "Charlie Smith",
         ),
     )
@@ -61,7 +61,7 @@ object StaticData {
             "Impact Music App Premium",
             "$9.99",
             R.drawable.shopping_bag,
-            Color.rgb(0,122, 255 ),
+            R.color.blue,
             "Expense",
         ),
         Transaction(
@@ -69,16 +69,16 @@ object StaticData {
             "Salary",
             "+$5,384.99",
             R.drawable.money,
-            Color.rgb(52, 199, 89),
+            R.color.green,
             "Income",
-            Color.rgb(52, 199, 89)
+            R.color.green,
         ),
         Transaction(
             2,
             "Electricity",
             "$58.99",
             R.drawable.bulb,
-            Color.rgb(255, 149, 0),
+            R.color.orange_dark,
             "Expense",
         ),
     )

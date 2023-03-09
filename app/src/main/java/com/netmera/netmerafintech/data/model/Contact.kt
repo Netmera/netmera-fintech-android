@@ -1,9 +1,9 @@
 package com.netmera.netmerafintech.data.model
 
-import android.graphics.Color
+import com.netmera.netmerafintech.R
 
 data class Contact (
     var contactId: Int? = null,
-    var containerColor: Int = Color.rgb(0, 120, 255),
+    var containerColor: Int = R.color.blue,
     var name: String? = "",
 )

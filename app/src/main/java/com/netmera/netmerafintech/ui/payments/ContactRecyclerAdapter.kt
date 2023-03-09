@@ -1,7 +1,9 @@
 package com.netmera.netmerafintech.ui.payments
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +12,8 @@ import com.netmera.netmerafintech.databinding.ItemContactsBinding
 
 class ContactRecyclerAdapter(
     private val contacts: List<Contact>,
-    private val onContactItemClick: (contact: Contact) -> Unit
+    private val onContactItemClick: (contact: Contact) -> Unit,
+    private val context: Context,
 ) : ListAdapter<Contact, ContactRecyclerAdapter.ContactViewHolder>(ContactsComparator) {
 
 
@@ -18,7 +21,7 @@ class ContactRecyclerAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Contact) {
             binding.apply {
-                cardBackground.setCardBackgroundColor(item.containerColor)
+                cardBackground.setCardBackgroundColor(ContextCompat.getColor(context, item.containerColor))
                 name.text = item.name
                 letter.text = item.name?.substring(0, 1)
                 root.setOnClickListener { onContactItemClick(item) }

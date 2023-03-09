@@ -1,10 +1,9 @@
 package com.netmera.netmerafintech.ui.home
 
 import android.content.Context
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -23,12 +22,12 @@ class TransactionsAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Transaction) {
             binding.apply {
-                transactionIconContainer.setCardBackgroundColor(item.iconContainerColor)
+                transactionIconContainer.setCardBackgroundColor(ContextCompat.getColor(context, item.iconContainerColor))
                 transactionIcon.setImageResource(item.icon)
                 transactionName.text = item.name
                 transactionType.text = item.type
                 transactionPrice.text = item.price
-                item.priceColor?.let { transactionPrice.setTextColor(it) }
+                item.priceColor?.let { transactionPrice.setTextColor(ContextCompat.getColor(context, it)) }
                 root.setOnClickListener { onTransactionItemClick(item) }
             }
         }

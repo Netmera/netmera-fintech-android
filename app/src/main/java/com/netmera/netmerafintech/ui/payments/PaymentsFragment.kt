@@ -52,7 +52,7 @@ class PaymentsFragment: Fragment() {
         }
 
         viewModel.contactsList.observe(viewLifecycleOwner) {
-            binding.contactsRecyclerView.adapter = ContactRecyclerAdapter(it, onContactsClick)
+            binding.contactsRecyclerView.adapter = ContactRecyclerAdapter(it, onContactsClick, requireContext())
         }
     }
 }
