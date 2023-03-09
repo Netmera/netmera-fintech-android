@@ -12,9 +12,9 @@ import com.netmera.netmerafintech.databinding.ItemTransactionBinding
 
 
 class TransactionsAdapter(
-    private val transactions: List<Transaction>,
-    private val onTransactionItemClick: (transaction: Transaction) -> Unit,
     private val context: Context,
+    private val onTransactionItemClick: (transaction: Transaction) -> Unit,
+    private val transactions: List<Transaction>
 ) : ListAdapter<Transaction, TransactionsAdapter.TransactionViewHolder>(TransactionsComparator) {
 
 
@@ -22,12 +22,12 @@ class TransactionsAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Transaction) {
             binding.apply {
-                transactionIconContainer.setCardBackgroundColor(ContextCompat.getColor(context, item.iconContainerColor))
                 transactionIcon.setImageResource(item.icon)
+                transactionIconContainer.setCardBackgroundColor(ContextCompat.getColor(context, item.iconContainerColor))
                 transactionName.text = item.name
-                transactionType.text = item.type
                 transactionPrice.text = item.price
-                item.priceColor?.let { transactionPrice.setTextColor(ContextCompat.getColor(context, it)) }
+                transactionPrice.setTextColor(ContextCompat.getColor(context, item.priceColor))
+                transactionType.text = item.type
                 root.setOnClickListener { onTransactionItemClick(item) }
             }
         }

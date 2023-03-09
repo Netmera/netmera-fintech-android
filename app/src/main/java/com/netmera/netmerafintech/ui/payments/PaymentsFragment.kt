@@ -17,11 +17,11 @@ class PaymentsFragment: Fragment() {
     private lateinit var binding: FragmentPaymentsBinding
     private lateinit var viewModel: PaymentsViewModel
 
-    private val onFavoritesClick = { favorite: Favorites ->
-//        FavoriteDetailActivity.open(requireActivity(), favorite) TODO open it after favorite detail is created
-    }
     private val onContactsClick = { contact: Contact ->
 //        ContactDetailActivity.open(requireActivity(), contact) TODO open it after contact detail is created
+    }
+    private val onFavoritesClick = { favorite: Favorites ->
+//        FavoriteDetailActivity.open(requireActivity(), favorite) TODO open it after favorite detail is created
     }
 
     override fun onCreateView(

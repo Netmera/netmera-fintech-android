@@ -8,11 +8,11 @@ import com.netmera.netmerafintech.data.model.Favorites
 import com.netmera.netmerafintech.data.StaticData
 
 class PaymentsViewModel: ViewModel() {
-    private val _favoritesList = MutableLiveData<List<Favorites>>()
     private val _contactsList = MutableLiveData<List<Contact>>()
+    private val _favoritesList = MutableLiveData<List<Favorites>>()
 
-    val favoritesList: LiveData<List<Favorites>> = _favoritesList
     val contactsList: LiveData<List<Contact>> = _contactsList
+    val favoritesList: LiveData<List<Favorites>> = _favoritesList
 
     fun fetchContacts() {
         _contactsList.value = StaticData.getContacts()

@@ -41,7 +41,7 @@ class HomeFragment: Fragment() {
         }
 
         viewModel.transactionList.observe(viewLifecycleOwner) {
-            binding.transactionsRecyclerView.adapter = TransactionsAdapter(it, onTransactionClick, requireContext())
+            binding.transactionsRecyclerView.adapter = TransactionsAdapter(requireContext(), onTransactionClick, it)
         }
     }
 }

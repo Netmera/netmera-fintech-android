@@ -30,55 +30,57 @@ object StaticData {
     fun getFavorites() = listOf(
         Favorites(
             0,
-            "Sarah",
             R.drawable.contact_red,
+            "Sarah",
         ),
         Favorites(
             1,
-            "Sam",
             R.drawable.avatar_curly_boy,
+            "Sam",
         ),
         Favorites(
             2,
-            "Adam",
             R.drawable.contact_blue,
+            "Adam",
         ),
         Favorites(
             3,
-            "Cynthia",
             R.drawable.contact_pink,
+            "Cynthia",
         ),
         Favorites(
             4,
-            "Daniel",
             null,
+            "Daniel",
         ),
     )
 
     fun getTransactions() = listOf(
         Transaction(
-            0,
-            "Impact Music App Premium",
-            "$9.99",
             R.drawable.shopping_bag,
             R.color.blue,
+            "Impact Music App Premium",
+            "$9.99",
+            R.color.black,
+            0,
             "Expense",
         ),
         Transaction(
-            1,
-            "Salary",
-            "+$5,384.99",
             R.drawable.money,
             R.color.green,
-            "Income",
+            "Salary",
+            "+$5,384.99",
             R.color.green,
+            1,
+            "Income",
         ),
         Transaction(
-            2,
-            "Electricity",
-            "$58.99",
             R.drawable.bulb,
             R.color.orange_dark,
+            "Electricity",
+            "$58.99",
+            R.color.black,
+            2,
             "Expense",
         ),
     )
