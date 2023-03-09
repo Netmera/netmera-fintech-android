@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.netmera.netmerafintech.data.Transaction
 import com.netmera.netmerafintech.databinding.FragmentHomeBinding
 import com.netmera.netmerafintech.ui.adapters.CardViewPagerAdapter
@@ -44,7 +43,6 @@ class HomeFragment: Fragment() {
         }
 
         viewModel.transactionList.observe(viewLifecycleOwner) {
-            binding.transactionsRecyclerView.layoutManager = LinearLayoutManager(activity)
             binding.transactionsRecyclerView.adapter = TransactionsAdapter(it, onTransactionClick)
         }
     }
