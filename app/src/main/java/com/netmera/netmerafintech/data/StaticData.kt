@@ -1,6 +1,9 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
 package com.netmera.netmerafintech.data
 
-import android.graphics.Color
 import com.netmera.netmerafintech.R
 import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.data.model.Contact
@@ -9,9 +12,9 @@ import com.netmera.netmerafintech.data.model.Transaction
 
 object StaticData {
     fun getCards() = listOf(
-        Card(CardType.CARD_BLACK.value),
-        Card(CardType.CARD_BLUE.value),
-        Card(CardType.CARD_YELLOW.value),
+        Card(CardType.BLACK.value),
+        Card(CardType.BLUE.value),
+        Card(CardType.YELLOW.value),
     )
 
     fun getContacts() = listOf(

@@ -1,3 +1,7 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
 package com.netmera.netmerafintech.ui.payments
 
 import android.content.Context
@@ -29,13 +33,16 @@ class ContactRecyclerAdapter(
         }
     }
 
+    //ListAdapter computes diffs between Lists on a background thread and handles updates at different adapter positions
     object ContactsComparator : DiffUtil.ItemCallback<Contact>() {
         override fun areItemsTheSame(oldItem: Contact, newItem: Contact): Boolean {
             // Id is unique.
+            // used to determine structural changes between old and new list (additions/removals/position changes)
             return oldItem.contactId == newItem.contactId
         }
 
         override fun areContentsTheSame(oldItem: Contact, newItem: Contact): Boolean {
+            // determines if particular item was updated
             return oldItem == newItem
         }
     }

@@ -1,3 +1,7 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
 package com.netmera.netmerafintech.ui.home
 
 import android.os.Bundle
@@ -37,7 +41,7 @@ class HomeFragment: Fragment() {
 
         viewModel.cardList.observe(viewLifecycleOwner) {
             binding.cardViewPager.adapter = CardViewPagerAdapter(it)
-            binding.cardViewPager.currentItem = CardType.CARD_BLUE.value
+            binding.cardViewPager.currentItem = CardType.BLUE.value
         }
 
         viewModel.transactionList.observe(viewLifecycleOwner) {

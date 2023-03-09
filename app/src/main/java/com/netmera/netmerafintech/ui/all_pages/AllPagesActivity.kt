@@ -1,3 +1,7 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
 package com.netmera.netmerafintech.ui.all_pages
 
 import android.os.Bundle

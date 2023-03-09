@@ -7,8 +7,7 @@
     <string name="by_bank_transfer_or_link">By bank transfer or link</string>
     <string name="card_last_four_digit">•••• 2183</string>
     <string name="contacts">Contacts</string>
-    <string name="current_account_lowercase">Current Account</string>
-    <string name="current_account_uppercase">CURRENT ACCOUNT</string>
+    <string name="current_account">Current Account</string>
     <string name="exit">Exit</string>
     <string name="get_started">Get started</string>
     <string name="header">impact</string>

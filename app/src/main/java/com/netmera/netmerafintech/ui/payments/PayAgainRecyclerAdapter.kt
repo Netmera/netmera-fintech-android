@@ -1,3 +1,7 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
 package com.netmera.netmerafintech.ui.payments
 
 import android.view.LayoutInflater
@@ -32,13 +36,16 @@ class PayAgainRecyclerAdapter(
         }
     }
 
+    //ListAdapter computes diffs between Lists on a background thread and handles updates at different adapter positions
     object FavoritesComparator : DiffUtil.ItemCallback<Favorites>() {
         override fun areItemsTheSame(oldItem: Favorites, newItem: Favorites): Boolean {
             // Id is unique.
+            // used to determine structural changes between old and new list (additions/removals/position changes)
             return oldItem.favoriteId == newItem.favoriteId
         }
 
         override fun areContentsTheSame(oldItem: Favorites, newItem: Favorites): Boolean {
+            // determines if particular item was updated
             return oldItem == newItem
         }
     }

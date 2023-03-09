@@ -1,3 +1,7 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
 package com.netmera.netmerafintech.ui.home
 
 import android.view.LayoutInflater
@@ -36,10 +40,10 @@ class CardViewPagerAdapter(private var cardList: List<Card>) : PagerAdapter() {
 
     private fun getDrawable(index: Int): Int {
         return when (index) {
-            CardType.CARD_BLACK.value -> {
+            CardType.BLACK.value -> {
                 R.drawable.black_card
             }
-            CardType.CARD_YELLOW.value -> {
+            CardType.YELLOW.value -> {
                 R.drawable.yellow_card
             }
             else -> {

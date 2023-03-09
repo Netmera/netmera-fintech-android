@@ -1,3 +1,7 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
 package com.netmera.netmerafintech.ui.home
 
 import android.content.Context
@@ -33,13 +37,17 @@ class TransactionsAdapter(
         }
         }
 
+
+    //ListAdapter computes diffs between Lists on a background thread and handles updates at different adapter positions
     object TransactionsComparator : DiffUtil.ItemCallback<Transaction>() {
         override fun areItemsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
             // Id is unique.
+            // used to determine structural changes between old and new list (additions/removals/position changes)
             return oldItem.transactionId == newItem.transactionId
         }
 
         override fun areContentsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
+            // determines if particular item was updated
             return oldItem == newItem
         }
     }
