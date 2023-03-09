@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.netmera.netmerafintech.data.Transaction
+import com.netmera.netmerafintech.data.CardType
+import com.netmera.netmerafintech.data.model.Transaction
 import com.netmera.netmerafintech.databinding.FragmentHomeBinding
-import com.netmera.netmerafintech.ui.adapters.CardViewPagerAdapter
-import com.netmera.netmerafintech.ui.adapters.TransactionsAdapter
-import com.netmera.netmerafintech.utils.CARD_BLUE
 
 class HomeFragment: Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -39,7 +37,7 @@ class HomeFragment: Fragment() {
 
         viewModel.cardList.observe(viewLifecycleOwner) {
             binding.cardViewPager.adapter = CardViewPagerAdapter(it)
-            binding.cardViewPager.currentItem = CARD_BLUE
+            binding.cardViewPager.currentItem = CardType.CARD_BLUE.value
         }
 
         viewModel.transactionList.observe(viewLifecycleOwner) {

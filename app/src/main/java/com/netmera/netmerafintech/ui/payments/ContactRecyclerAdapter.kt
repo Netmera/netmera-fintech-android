@@ -1,11 +1,11 @@
-package com.netmera.netmerafintech.ui.adapters
+package com.netmera.netmerafintech.ui.payments
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.netmera.netmerafintech.data.Contact
+import com.netmera.netmerafintech.data.model.Contact
 import com.netmera.netmerafintech.databinding.ItemContactsBinding
 
 class ContactRecyclerAdapter(

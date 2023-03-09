@@ -8,12 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.netmera.netmerafintech.R
-import com.netmera.netmerafintech.data.Contact
-import com.netmera.netmerafintech.data.Favorites
+import com.netmera.netmerafintech.data.model.Contact
+import com.netmera.netmerafintech.data.model.Favorites
 import com.netmera.netmerafintech.databinding.FragmentPaymentsBinding
-import com.netmera.netmerafintech.ui.adapters.ContactRecyclerAdapter
-import com.netmera.netmerafintech.ui.adapters.DividerItemDecorator
-import com.netmera.netmerafintech.ui.adapters.PayAgainRecyclerAdapter
+import com.netmera.netmerafintech.ui.decorators.DividerItemDecorator
 
 class PaymentsFragment: Fragment() {
     private lateinit var binding: FragmentPaymentsBinding

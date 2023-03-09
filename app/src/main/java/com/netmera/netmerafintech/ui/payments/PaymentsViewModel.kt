@@ -3,8 +3,8 @@ package com.netmera.netmerafintech.ui.payments
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.netmera.netmerafintech.data.Contact
-import com.netmera.netmerafintech.data.Favorites
+import com.netmera.netmerafintech.data.model.Contact
+import com.netmera.netmerafintech.data.model.Favorites
 import com.netmera.netmerafintech.data.StaticData
 
 class PaymentsViewModel: ViewModel() {

@@ -1,4 +1,4 @@
-package com.netmera.netmerafintech.data
+package com.netmera.netmerafintech.data.model
 
 import android.graphics.Color
 import com.netmera.netmerafintech.R

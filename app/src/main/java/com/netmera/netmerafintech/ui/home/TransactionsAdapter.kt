@@ -1,17 +1,21 @@
-package com.netmera.netmerafintech.ui.adapters
+package com.netmera.netmerafintech.ui.home
 
+import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.netmera.netmerafintech.data.Transaction
+import com.netmera.netmerafintech.data.model.Transaction
 import com.netmera.netmerafintech.databinding.ItemTransactionBinding
 
 
 class TransactionsAdapter(
     private val transactions: List<Transaction>,
-    private val onTransactionItemClick: (transaction: Transaction) -> Unit
+    private val onTransactionItemClick: (transaction: Transaction) -> Unit,
+    private val context: Context,
 ) : ListAdapter<Transaction, TransactionsAdapter.TransactionViewHolder>(TransactionsComparator) {
 
 

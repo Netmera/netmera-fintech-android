@@ -1,4 +1,4 @@
-package com.netmera.netmerafintech.ui.adapters
+package com.netmera.netmerafintech.ui.decorators
 
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable

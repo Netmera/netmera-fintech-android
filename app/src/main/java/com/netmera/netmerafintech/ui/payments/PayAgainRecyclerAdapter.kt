@@ -1,4 +1,4 @@
-package com.netmera.netmerafintech.ui.adapters
+package com.netmera.netmerafintech.ui.payments
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.netmera.netmerafintech.data.Favorites
+import com.netmera.netmerafintech.data.model.Favorites
 import com.netmera.netmerafintech.databinding.ItemPayAgainBinding
 
 class PayAgainRecyclerAdapter(

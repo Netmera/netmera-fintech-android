@@ -3,9 +3,9 @@ package com.netmera.netmerafintech.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.netmera.netmerafintech.data.Card
+import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.data.StaticData
-import com.netmera.netmerafintech.data.Transaction
+import com.netmera.netmerafintech.data.model.Transaction
 
 class HomeViewModel: ViewModel() {
     private val _cardList = MutableLiveData<List<Card>>()

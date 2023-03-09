@@ -1,4 +1,4 @@
-package com.netmera.netmerafintech.data
+package com.netmera.netmerafintech.data.model
 
 data class Favorites (
     var favoriteId: Int? = null,

@@ -3,8 +3,6 @@ package com.netmera.netmerafintech.ui.all_pages
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.netmera.netmerafintech.R
 import com.netmera.netmerafintech.ui.analytics.AnalyticsFragment
 import com.netmera.netmerafintech.databinding.ActivityAllpagesBinding
@@ -15,14 +13,11 @@ import com.netmera.netmerafintech.ui.payments.PaymentsFragment
 
 class AllPagesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAllpagesBinding
-    private lateinit var viewModel: AllPagesViewModel
-    lateinit var bottomNavigation : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAllpagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(this).get(AllPagesViewModel::class.java)
         loadFragment(HomeFragment())
         setOnNavigationBarClickListener()
     }
