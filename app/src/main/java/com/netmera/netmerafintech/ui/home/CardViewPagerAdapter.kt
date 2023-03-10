@@ -1,14 +1,17 @@
-package com.netmera.netmerafintech.ui.adapters
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
+package com.netmera.netmerafintech.ui.home
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import com.netmera.netmerafintech.R
-import com.netmera.netmerafintech.data.Card
+import com.netmera.netmerafintech.data.CardType
+import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.databinding.FragmentHomeBinding
-import com.netmera.netmerafintech.utils.CARD_BLACK
-import com.netmera.netmerafintech.utils.CARD_YELLOW
 
 class CardViewPagerAdapter(private var cardList: List<Card>) : PagerAdapter() {
     private lateinit var binding: FragmentHomeBinding
@@ -37,10 +40,10 @@ class CardViewPagerAdapter(private var cardList: List<Card>) : PagerAdapter() {
 
     private fun getDrawable(index: Int): Int {
         return when (index) {
-            CARD_BLACK -> {
+            CardType.BLACK.value -> {
                 R.drawable.black_card
             }
-            CARD_YELLOW -> {
+            CardType.YELLOW.value -> {
                 R.drawable.yellow_card
             }
             else -> {

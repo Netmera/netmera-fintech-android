@@ -1,17 +1,24 @@
-package com.netmera.netmerafintech.ui.adapters
+/*
+* Copyright (c) 2023 Netmera.
+*/
 
+package com.netmera.netmerafintech.ui.home
+
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.netmera.netmerafintech.data.Transaction
+import com.netmera.netmerafintech.data.model.Transaction
 import com.netmera.netmerafintech.databinding.ItemTransactionBinding
 
 
 class TransactionsAdapter(
-    private val transactions: List<Transaction>,
-    private val onTransactionItemClick: (transaction: Transaction) -> Unit
+    private val context: Context,
+    private val onTransactionItemClick: (transaction: Transaction) -> Unit,
+    private val transactions: List<Transaction>
 ) : ListAdapter<Transaction, TransactionsAdapter.TransactionViewHolder>(TransactionsComparator) {
 
 
@@ -19,24 +26,28 @@ class TransactionsAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Transaction) {
             binding.apply {
-                transactionIconContainer.setCardBackgroundColor(item.iconContainerColor)
                 transactionIcon.setImageResource(item.icon)
+                transactionIconContainer.setCardBackgroundColor(ContextCompat.getColor(context, item.iconContainerColor))
                 transactionName.text = item.name
-                transactionType.text = item.type
                 transactionPrice.text = item.price
-                item.priceColor?.let { transactionPrice.setTextColor(it) }
+                transactionPrice.setTextColor(ContextCompat.getColor(context, item.priceColor))
+                transactionType.text = item.type
                 root.setOnClickListener { onTransactionItemClick(item) }
             }
         }
         }
 
+
+    //ListAdapter computes diffs between Lists on a background thread and handles updates at different adapter positions
     object TransactionsComparator : DiffUtil.ItemCallback<Transaction>() {
         override fun areItemsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
             // Id is unique.
+            // used to determine structural changes between old and new list (additions/removals/position changes)
             return oldItem.transactionId == newItem.transactionId
         }
 
         override fun areContentsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
+            // determines if particular item was updated
             return oldItem == newItem
         }
     }

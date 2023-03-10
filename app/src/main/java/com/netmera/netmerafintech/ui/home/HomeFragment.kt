@@ -1,3 +1,7 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
+
 package com.netmera.netmerafintech.ui.home
 
 import android.os.Bundle
@@ -6,12 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.netmera.netmerafintech.data.Transaction
+import com.netmera.netmerafintech.data.CardType
+import com.netmera.netmerafintech.data.model.Transaction
 import com.netmera.netmerafintech.databinding.FragmentHomeBinding
-import com.netmera.netmerafintech.ui.adapters.CardViewPagerAdapter
-import com.netmera.netmerafintech.ui.adapters.TransactionsAdapter
-import com.netmera.netmerafintech.utils.CARD_BLUE
 
 class HomeFragment: Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -40,12 +41,11 @@ class HomeFragment: Fragment() {
 
         viewModel.cardList.observe(viewLifecycleOwner) {
             binding.cardViewPager.adapter = CardViewPagerAdapter(it)
-            binding.cardViewPager.currentItem = CARD_BLUE
+            binding.cardViewPager.currentItem = CardType.BLUE.value
         }
 
         viewModel.transactionList.observe(viewLifecycleOwner) {
-            binding.transactionsRecyclerView.layoutManager = LinearLayoutManager(activity)
-            binding.transactionsRecyclerView.adapter = TransactionsAdapter(it, onTransactionClick)
+            binding.transactionsRecyclerView.adapter = TransactionsAdapter(requireContext(), onTransactionClick, it)
         }
     }
 }

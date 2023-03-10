@@ -1,10 +1,13 @@
 <resources>
+    <string name="all_accounts">All Accounts</string>
     <string name="analytics">Analytics</string>
     <string name="app_name">NetmeraFintech</string>
+    <string name="ask_money">Ask someone to send you money</string>
     <string name="balance">$5,432.43</string>
+    <string name="by_bank_transfer_or_link">By bank transfer or link</string>
     <string name="card_last_four_digit">•••• 2183</string>
-    <string name="current_account_lowercase">Current Account</string>
-    <string name="current_account_uppercase">CURRENT ACCOUNT</string>
+    <string name="contacts">Contacts</string>
+    <string name="current_account">Current Account</string>
     <string name="exit">Exit</string>
     <string name="get_started">Get started</string>
     <string name="header">impact</string>
@@ -12,7 +15,12 @@
     <string name="home">Home</string>
     <string name="manage">MANAGE</string>
     <string name="manage_wallet">Manage your\nWallet\nwith Impact</string>
+    <string name="nearby">Nearby</string>
     <string name="payments">Payments</string>
+    <string name="pay_again">Pay again</string>
+    <string name="pay_someone">Pay Someone</string>
+    <string name="request_money">Request money</string>
+    <string name="search_for_payees">Search for payees</string>
     <string name="see_all">See all</string>
     <string name="sign_in">Sign in</string>
     <string name="splash_text">Find any place in the world in seconds, suited to your needs and preferences.</string>
