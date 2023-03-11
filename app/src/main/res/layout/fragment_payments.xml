@@ -234,7 +234,7 @@
                             android:text="@string/pay_someone"
                             android:textSize="16sp"
                             android:textColor="@color/black"
-                            android:fontFamily="@font/sf_pro_590"/>
+                            android:fontFamily="@font/sf_pro_display_bold"/>
 
                         <TextView
                             android:id="@+id/paymentMethod"
@@ -312,7 +312,7 @@
                             android:text="@string/request_money"
                             android:textSize="16sp"
                             android:textColor="@color/black"
-                            android:fontFamily="@font/sf_pro_590"/>
+                            android:fontFamily="@font/sf_pro_display_bold"/>
 
                         <TextView
                             android:id="@+id/askMoney"
