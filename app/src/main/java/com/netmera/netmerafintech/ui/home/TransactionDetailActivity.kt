@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.netmera.netmerafintech.data.model.Transaction
 import com.netmera.netmerafintech.databinding.ActivityTransactionDetailBinding
+import com.netmera.netmerafintech.utils.parcelable
 import com.netmera.netmerafintech.utils.toast
 
 
@@ -35,12 +36,7 @@ class TransactionDetailActivity: AppCompatActivity() {
         binding = ActivityTransactionDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // getParcelable needs to be set class of data type after API level 33
-        val transaction: Transaction? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.extras?.getParcelable(ARG_TRANSACTION, Transaction::class.java)
-        } else {
-            intent.extras?.getParcelable(ARG_TRANSACTION)
-        }
+        val transaction: Transaction? = intent.extras?.parcelable(ARG_TRANSACTION)
         transaction?.let {
             initViews(it)
         } ?: run {
@@ -48,39 +44,23 @@ class TransactionDetailActivity: AppCompatActivity() {
             finish()
             return
         }
-
-        setOnClickActions()
     }
 
     private fun initViews(transaction: Transaction) {
         binding.apply {
             averageSpentAmount.text = transaction.price
             averageSpentAmount.setTextColor(ContextCompat.getColor(this@TransactionDetailActivity, transaction.priceColor))
+            paymentsNumber.text = transaction.numberOfPayments
+            paymentsNumber2.text = transaction.numberOfPayments
             totalSpentAmount.setTextColor(ContextCompat.getColor(this@TransactionDetailActivity, transaction.priceColor))
+            totalSpentAmount.text = transaction.totalAmount
+            transactionCategory.text = transaction.category
             transactionIcon.setImageResource(transaction.icon)
             transactionIconBackground.setCardBackgroundColor(ContextCompat.getColor(this@TransactionDetailActivity, transaction.iconContainerColor))
             transactionName.text = transaction.name
+            transactionNumber.text = transaction.transactionNumber
             transactionType.text = transaction.type
 
-            // custom settigns, no need for id == 0, it's set already
-            if (transaction.transactionId == 1) {
-                paymentsNumber.text = "3 payments"
-                paymentsNumber2.text = "3 payments"
-                totalSpentAmount.text = "+$16,154.97"
-                transactionCategory.text = "Income"
-                transactionNumber.text = "3"
-            } else if (transaction.transactionId == 2){
-                paymentsNumber.text = "13 payments"
-                paymentsNumber2.text = "13 payments"
-                totalSpentAmount.text = "$766.87"
-                transactionCategory.text = "Bill"
-                transactionNumber.text = "13"
-            }
-        }
-    }
-
-    private fun setOnClickActions() {
-        binding.apply {
             backButton.setOnClickListener { finish() }
             addNotesLayout.setOnClickListener {
                 toast("Add notes event was called.")
