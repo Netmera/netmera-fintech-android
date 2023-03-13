@@ -4,6 +4,7 @@
 
 package com.netmera.netmerafintech.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,9 @@ class HomeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding.apply {
+            manageButton.setOnClickListener { startActivity(Intent(context, ManageCardActivity::class.java)) }
+        }
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         viewModel.fetchCards()
