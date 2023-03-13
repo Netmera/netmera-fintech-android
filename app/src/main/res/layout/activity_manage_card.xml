@@ -15,79 +15,70 @@
         android:layout_marginTop="21dp"
         android:src="@drawable/chevron_left"
         android:background="@android:color/transparent"/>
-    
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cardLayout"
+
+    <TextView
+        android:id="@+id/manageCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
         app:layout_constraintTop_toBottomOf="@+id/backButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/manage_card"
+        android:textSize="34dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sf_pro_display_bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:id="@+id/manageCard"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/manageCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:src="@drawable/blue_card"
+        android:layout_marginStart="16dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toTopOf="@id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="5dp"
+        app:cardBackgroundColor="@color/background"
+        app:cardElevation="10dp"
+        android:outlineSpotShadowColor="@color/background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/manage_card"
-            android:textSize="34dp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/sf_pro_display_bold" />
+            android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/manageCard"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:src="@drawable/blue_card" />
-        
-        <androidx.cardview.widget.CardView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:layout_constraintTop_toTopOf="@id/cardView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardCornerRadius="20dp"
-            android:layout_marginTop="-10dp"
-            android:layout_marginEnd="5dp"
-            app:cardBackgroundColor="@color/background"
-            app:cardElevation="10dp"
-            android:outlineSpotShadowColor="@color/background">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardBackgroundColor="@color/black"
+                android:layout_margin="3dp"
+                app:cardCornerRadius="17dp"/>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:cardBackgroundColor="@color/black"
-                    android:layout_margin="3dp"
-                    app:cardCornerRadius="17dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/cardLayout"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp"
@@ -121,42 +112,32 @@
                     app:cardCornerRadius="8dp"
                     app:cardBackgroundColor="@color/pink" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/freezeCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/lost_or_stolen1"
                     app:layout_constraintStart_toEndOf="@+id/pinkCard"
-                    android:layout_marginStart="10dp">
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/freeze_card"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_bold"/>
 
-                    <TextView
-                        android:id="@+id/freezeCard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/lost_or_stolen1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginStart="5dp"
-                        android:text="@string/freeze_card"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/sf_pro_display_bold"/>
-
-                    <TextView
-                        android:id="@+id/lost_or_stolen1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/freezeCard"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginStart="5dp"
-                        android:text="@string/lost_or_stolen"
-                        android:textSize="14sp"
-                        android:textColor="@color/dark_gray"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/lost_or_stolen1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/freezeCard"
+                    app:layout_constraintStart_toEndOf="@+id/pinkCard"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="14dp"
+                    android:text="@string/lost_or_stolen"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_gray"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -190,42 +171,32 @@
                     app:cardCornerRadius="8dp"
                     app:cardBackgroundColor="@color/purple" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/forgotYourPin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/lost_or_stolen2"
                     app:layout_constraintStart_toEndOf="@+id/purpleCard"
-                    android:layout_marginStart="10dp">
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/forgot_pin"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_bold"/>
 
-                    <TextView
-                        android:id="@+id/forgotYourPin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/lost_or_stolen2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginStart="5dp"
-                        android:text="@string/forgot_pin"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/sf_pro_display_bold"/>
-
-                    <TextView
-                        android:id="@+id/lost_or_stolen2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/forgotYourPin"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginStart="5dp"
-                        android:text="@string/lost_or_stolen"
-                        android:textSize="14sp"
-                        android:textColor="@color/dark_gray"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/lost_or_stolen2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/forgotYourPin"
+                    app:layout_constraintStart_toEndOf="@+id/purpleCard"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="14dp"
+                    android:text="@string/lost_or_stolen"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_gray"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -259,42 +230,32 @@
                     app:cardCornerRadius="8dp"
                     app:cardBackgroundColor="@color/blue" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/terminateAndMore"
                     app:layout_constraintStart_toEndOf="@+id/blueCard"
-                    android:layout_marginStart="10dp">
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/settings"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_bold"/>
 
-                    <TextView
-                        android:id="@+id/settings"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/terminateAndMore"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginStart="5dp"
-                        android:text="@string/settings"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/sf_pro_display_bold"/>
-
-                    <TextView
-                        android:id="@+id/terminateAndMore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/settings"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginStart="5dp"
-                        android:text="@string/terminate"
-                        android:textSize="14sp"
-                        android:textColor="@color/dark_gray"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/terminateAndMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/settings"
+                    app:layout_constraintStart_toEndOf="@+id/blueCard"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="14dp"
+                    android:text="@string/terminate"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_gray"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
@@ -327,42 +288,32 @@
                     app:cardCornerRadius="8dp"
                     app:cardBackgroundColor="@color/green" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/support"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/contactUs"
                     app:layout_constraintStart_toEndOf="@+id/greenCard"
-                    android:layout_marginStart="10dp">
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/support"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sf_pro_display_bold"/>
 
-                    <TextView
-                        android:id="@+id/support"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/contactUs"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginBottom="1dp"
-                        android:layout_marginStart="5dp"
-                        android:text="@string/support"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/sf_pro_display_bold"/>
-
-                    <TextView
-                        android:id="@+id/contactUs"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/support"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginStart="5dp"
-                        android:text="@string/contact_us"
-                        android:textSize="14sp"
-                        android:textColor="@color/dark_gray"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/contactUs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/support"
+                    app:layout_constraintStart_toEndOf="@+id/greenCard"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="14dp"
+                    android:text="@string/contact_us"
+                    android:textSize="14sp"
+                    android:textColor="@color/dark_gray"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
