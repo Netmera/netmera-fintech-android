@@ -16,6 +16,7 @@ import com.netmera.netmerafintech.data.model.Contact
 import com.netmera.netmerafintech.data.model.Favorites
 import com.netmera.netmerafintech.databinding.FragmentPaymentsBinding
 import com.netmera.netmerafintech.ui.decorators.DividerItemDecorator
+import com.netmera.netmerafintech.utils.toast
 
 class PaymentsFragment: Fragment() {
     private lateinit var binding: FragmentPaymentsBinding
@@ -25,7 +26,7 @@ class PaymentsFragment: Fragment() {
 //        ContactDetailActivity.open(requireActivity(), contact) TODO open it after contact detail is created
     }
     private val onFavoritesClick = { favorite: Favorites ->
-//        FavoriteDetailActivity.open(requireActivity(), favorite) TODO open it after favorite detail is created
+        SendMoneyActivity.open(requireActivity(), favorite)
     }
 
     override fun onCreateView(
@@ -34,6 +35,7 @@ class PaymentsFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPaymentsBinding.inflate(layoutInflater, container, false)
+        setOnClickActions()
 
         // code block below sets a divider between recyclerview items
         context?.let {
@@ -57,6 +59,15 @@ class PaymentsFragment: Fragment() {
 
         viewModel.contactsList.observe(viewLifecycleOwner) {
             binding.contactsRecyclerView.adapter = ContactRecyclerAdapter(it, onContactsClick, requireContext())
+        }
+    }
+
+    private fun setOnClickActions() {
+        binding.apply {
+            locationButtonContainer.setOnClickListener { toast("Nearby event was called.") }
+            paySomeoneLayout.setOnClickListener { toast("Pay someone event was called.") }
+            requestMoneyLayout.setOnClickListener { toast("Request money event was called.") }
+            searchBarCard.setOnClickListener { toast("Search for payees event was called.") }
         }
     }
 }
