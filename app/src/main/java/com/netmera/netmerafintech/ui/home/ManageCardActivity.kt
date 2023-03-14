@@ -1,9 +1,9 @@
 package com.netmera.netmerafintech.ui.home
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.netmera.netmerafintech.databinding.ActivityManageCardBinding
+import com.netmera.netmerafintech.utils.toast
 
 class ManageCardActivity: AppCompatActivity() {
     private lateinit var binding: ActivityManageCardBinding
@@ -15,16 +15,16 @@ class ManageCardActivity: AppCompatActivity() {
         binding.apply {
             backButton.setOnClickListener { finish() }
             freezeCardLayout.setOnClickListener {
-                Toast.makeText(this@ManageCardActivity, "Freeze card event was called.", Toast.LENGTH_LONG).show()
+                toast("Freeze card event was called.")
             }
             forgotYourPinLayout.setOnClickListener {
-                Toast.makeText(this@ManageCardActivity, "Forgot your pin event was called.", Toast.LENGTH_LONG).show()
+                toast("Forgot your pin event was called.")
             }
             settingsLayout.setOnClickListener {
-                Toast.makeText(this@ManageCardActivity, "Settings event was called.", Toast.LENGTH_LONG).show()
+                toast("Settings event was called.")
             }
             supportLayout.setOnClickListener {
-                Toast.makeText(this@ManageCardActivity, "Support event was called.", Toast.LENGTH_LONG).show()
+                toast( "Support event was called.")
             }
         }
     }

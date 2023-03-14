@@ -20,7 +20,7 @@ class HomeFragment: Fragment() {
     private lateinit var viewModel: HomeViewModel
 
     private val onTransactionClick = { transaction: Transaction ->
-//        TransactionDetailActivity.open(requireActivity(), transaction) TODO open it after transaction detail is created
+        TransactionDetailActivity.open(requireActivity(), transaction)
     }
 
     override fun onCreateView(
