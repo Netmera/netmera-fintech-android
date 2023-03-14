@@ -17,7 +17,7 @@ class ManageCardActivity: AppCompatActivity() {
         private const val ARG_CARD = "ARG_CARD"
 
         @JvmStatic
-        fun open(activity: Activity?, card: Card) {
+        fun start(activity: Activity?, card: Card) {
             activity?.startActivity(Intent(activity, ManageCardActivity::class.java).apply {
                 putExtra(ARG_CARD, card)
             })
@@ -35,7 +35,7 @@ class ManageCardActivity: AppCompatActivity() {
         card?.let {
             initViews(it)
         } ?: run {
-            toast("Error occurred while opening manage card page. Please try again.")
+            toast("Error occurred while starting manage card page. Please try again.")
             finish()
             return
         }
@@ -43,13 +43,17 @@ class ManageCardActivity: AppCompatActivity() {
 
     private fun initViews(card: Card) {
         binding.apply {
-            if (card.cardId == CardType.BLACK.value) {
-                cardView.setImageResource(R.drawable.black_card)
-            } else if (card.cardId == CardType.YELLOW.value) {
-                cardView.setImageResource(R.drawable.yellow_card)
-            } else {
-                cardView.setImageResource(R.drawable.blue_card)
+            when (card.cardId) {
+                CardType.BLACK.value -> cardView.setImageResource(R.drawable.black_card)
+                CardType.YELLOW.value -> cardView.setImageResource(R.drawable.yellow_card)
+                else -> cardView.setImageResource(R.drawable.blue_card)
             }
+            setOnClickActions()
+        }
+    }
+
+    private fun setOnClickActions() {
+        binding.apply {
             backButton.setOnClickListener { finish() }
             freezeCardLayout.setOnClickListener { toast("Freeze card event was called.") }
             forgotYourPinLayout.setOnClickListener { toast("Forgot your pin event was called.") }

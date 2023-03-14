@@ -23,10 +23,10 @@ class HomeFragment: Fragment() {
     private var card: Card = Card(CardType.BLUE.value)
 
     private val onManageClick = { card: Card ->
-        ManageCardActivity.open(requireActivity(), card)
+        ManageCardActivity.start(requireActivity(), card)
     }
     private val onTransactionClick = { transaction: Transaction ->
-        TransactionDetailActivity.open(requireActivity(), transaction)
+        TransactionDetailActivity.start(requireActivity(), transaction)
     }
 
     override fun onCreateView(

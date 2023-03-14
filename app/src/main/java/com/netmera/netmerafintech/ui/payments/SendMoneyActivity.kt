@@ -15,7 +15,7 @@ class SendMoneyActivity : AppCompatActivity() {
         private const val ARG_SEND_MONEY = "ARG_SEND_MONEY"
 
         @JvmStatic
-        fun open(activity: Activity?, favorite: Favorites) {
+        fun start(activity: Activity?, favorite: Favorites) {
             activity?.startActivity(Intent(activity, SendMoneyActivity::class.java).apply {
                 putExtra(ARG_SEND_MONEY, favorite)
             })
@@ -33,7 +33,7 @@ class SendMoneyActivity : AppCompatActivity() {
         favorite?.let {
             initViews(it)
         } ?: run {
-            toast("Error occurred while opening send money. Please try again.")
+            toast("Error occurred while opening send money page. Please try again.")
             finish()
             return
         }

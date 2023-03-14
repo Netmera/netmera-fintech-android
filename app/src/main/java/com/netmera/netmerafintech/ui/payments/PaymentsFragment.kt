@@ -26,7 +26,7 @@ class PaymentsFragment: Fragment() {
 //        ContactDetailActivity.open(requireActivity(), contact) TODO open it after contact detail is created
     }
     private val onFavoritesClick = { favorite: Favorites ->
-        SendMoneyActivity.open(requireActivity(), favorite)
+        SendMoneyActivity.start(requireActivity(), favorite)
     }
 
     override fun onCreateView(

@@ -17,8 +17,13 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
-fun Activity.toast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+fun Activity.toast(message: String, isDurationShort: Boolean? = null) {
+    if (isDurationShort == true) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    } else {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+
 }
 
 // getParcelable needs to be set class of data type after API level 33
@@ -51,8 +56,12 @@ fun EditText.onTextChanged(onChange: (charSequence: CharSequence) -> Unit) {
     })
 }
 
-fun Fragment.toast(message: String) {
-    activity?.toast(message)
+fun Fragment.toast(message: String, isDurationShort: Boolean? = null) {
+    if (isDurationShort == true) {
+        activity?.toast(message, true)
+    } else {
+        activity?.toast(message, false)
+    }
 }
 
 fun View.showKeyboard() {
