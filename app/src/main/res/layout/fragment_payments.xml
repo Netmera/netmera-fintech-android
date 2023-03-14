@@ -182,7 +182,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/optionsCard"
             android:layout_width="match_parent"
-            android:layout_height="155dp"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/balanceCard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -197,8 +197,9 @@
                 android:layout_height="match_parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/paySomeoneLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="77dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toTopOf="@+id/divider"
                     app:layout_constraintStart_toStartOf="parent">
@@ -214,42 +215,32 @@
                         app:cardCornerRadius="8dp"
                         app:cardBackgroundColor="@color/green" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <TextView
+                        android:id="@+id/paySomeone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/greenCard"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/pay_someone"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sf_pro_display_bold"/>
 
-                        <TextView
-                            android:id="@+id/paySomeone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toTopOf="@+id/paymentMethod"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginBottom="1dp"
-                            android:layout_marginStart="5dp"
-                            android:text="@string/pay_someone"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/sf_pro_display_bold"/>
-
-                        <TextView
-                            android:id="@+id/paymentMethod"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/paySomeone"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginTop="1dp"
-                            android:layout_marginStart="5dp"
-                            android:text="@string/by_bank_transfer_or_link"
-                            android:textSize="14sp"
-                            android:textColor="@color/dark_gray"/>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/paymentMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/greenCard"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/by_bank_transfer_or_link"
+                        android:textSize="14sp"
+                        android:textColor="@color/dark_gray"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -275,8 +266,9 @@
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/requestMoneyLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="77dp"
                     app:layout_constraintTop_toBottomOf="@+id/divider"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
@@ -292,42 +284,32 @@
                         app:cardCornerRadius="8dp"
                         app:cardBackgroundColor="@color/purple" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <TextView
+                        android:id="@+id/requestMoney"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/purpleCard"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/request_money"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sf_pro_display_bold"/>
 
-                        <TextView
-                            android:id="@+id/requestMoney"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toTopOf="@+id/askMoney"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginBottom="1dp"
-                            android:layout_marginStart="5dp"
-                            android:text="@string/request_money"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/sf_pro_display_bold"/>
-
-                        <TextView
-                            android:id="@+id/askMoney"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/requestMoney"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginTop="1dp"
-                            android:layout_marginStart="5dp"
-                            android:text="@string/ask_money"
-                            android:textSize="14sp"
-                            android:textColor="@color/dark_gray"/>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/askMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/purpleCard"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/ask_money"
+                        android:textSize="14sp"
+                        android:textColor="@color/dark_gray"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
