@@ -60,6 +60,7 @@ class HomeFragment: Fragment() {
         binding.apply {
             manageButton.setOnClickListener { onManageClick(card) }
             settings.setOnClickListener { toast("Settings event was called.") }
+            seeAll.setOnClickListener { toast("See all event was called") }
         }
     }
 

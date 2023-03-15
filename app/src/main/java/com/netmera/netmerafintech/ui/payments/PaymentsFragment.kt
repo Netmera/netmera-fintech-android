@@ -24,6 +24,7 @@ class PaymentsFragment: Fragment() {
 
     private val onContactsClick = { contact: Contact ->
 //        ContactDetailActivity.open(requireActivity(), contact) TODO open it after contact detail is created
+        toast("Contacts event was called")
     }
     private val onFavoritesClick = { favorite: Favorites ->
         SendMoneyActivity.start(requireActivity(), favorite)

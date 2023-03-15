@@ -53,7 +53,6 @@ class SendMoneyActivity : AppCompatActivity() {
                 letter.text = favorite.name?.substring(0, 1)
             }
 
-            backButton.setOnClickListener { finish() }
             amount.onTextChanged {
                 if (amount.text?.length == 0) {
                     sendButton.text = applicationContext.getString(R.string.send_dollar) + "0.00"
@@ -67,6 +66,17 @@ class SendMoneyActivity : AppCompatActivity() {
                 message.showKeyboard()
             }
             message.clearFocusOnDone()
+
+            setOnClickActions()
         }
+    }
+
+    private fun setOnClickActions() {
+        binding.apply {
+            backButton.setOnClickListener { finish() }
+            changeButton.setOnClickListener{ toast("Change event was called") }
+            sendButton.setOnClickListener { toast("Send money event was called") }
+        }
+
     }
 }
