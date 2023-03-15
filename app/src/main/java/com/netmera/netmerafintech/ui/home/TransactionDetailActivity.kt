@@ -21,7 +21,6 @@ class TransactionDetailActivity: AppCompatActivity() {
     companion object {
         private const val ARG_TRANSACTION = "ARG_TRANSACTION"
 
-        @JvmStatic
         fun start(activity: Activity?, transaction: Transaction) {
             activity?.startActivity(Intent(activity, TransactionDetailActivity::class.java).apply {
                 putExtra(ARG_TRANSACTION, transaction)

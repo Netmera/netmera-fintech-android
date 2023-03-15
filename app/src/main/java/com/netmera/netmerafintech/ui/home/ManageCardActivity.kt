@@ -16,7 +16,6 @@ class ManageCardActivity: AppCompatActivity() {
     companion object {
         private const val ARG_CARD = "ARG_CARD"
 
-        @JvmStatic
         fun start(activity: Activity?, card: Card) {
             activity?.startActivity(Intent(activity, ManageCardActivity::class.java).apply {
                 putExtra(ARG_CARD, card)
