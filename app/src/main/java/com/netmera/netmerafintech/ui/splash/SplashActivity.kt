@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.netmera.netmerafintech.ui.all_pages.AllPagesActivity
 import com.netmera.netmerafintech.databinding.ActivitySplashBinding
+import com.netmera.netmerafintech.utils.toast
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -22,5 +23,6 @@ class SplashActivity : AppCompatActivity() {
         binding.getStartedButton.setOnClickListener {
             startActivity(Intent(this, AllPagesActivity::class.java))
         }
+        binding.signInButton.setOnClickListener { toast("Sign in event was called") }
     }
 }
