@@ -21,8 +21,7 @@ class TransactionDetailActivity: AppCompatActivity() {
     companion object {
         private const val ARG_TRANSACTION = "ARG_TRANSACTION"
 
-        @JvmStatic
-        fun open(activity: Activity?, transaction: Transaction) {
+        fun start(activity: Activity?, transaction: Transaction) {
             activity?.startActivity(Intent(activity, TransactionDetailActivity::class.java).apply {
                 putExtra(ARG_TRANSACTION, transaction)
             })
@@ -40,7 +39,7 @@ class TransactionDetailActivity: AppCompatActivity() {
         transaction?.let {
             initViews(it)
         } ?: run {
-            toast("Error occurred while opening transaction detail. Please try again.")
+            toast("Error occurred while starting transaction detail. Please try again.")
             finish()
             return
         }
