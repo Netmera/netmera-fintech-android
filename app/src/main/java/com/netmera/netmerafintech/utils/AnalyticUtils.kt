@@ -9,12 +9,6 @@ import com.netmera.netmerafintech.data.model.NMImpactFintechUser
 
 object AnalyticsUtil {
 
-    fun getNotificationPermission(activity: Activity) {
-        if (Build.VERSION.SDK_INT >= 33) {
-            Netmera.requestNotificationPermissions(activity)
-        } // already granted for lower level
-    }
-
     fun getStartedEvent() {
         val event = GetStartedEvent()
         event.setGetStarted(true)
