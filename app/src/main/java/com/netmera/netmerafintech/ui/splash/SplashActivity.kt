@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.netmera.netmerafintech.ui.all_pages.AllPagesActivity
 import com.netmera.netmerafintech.databinding.ActivitySplashBinding
+import com.netmera.netmerafintech.utils.AnalyticsUtil
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -19,8 +20,20 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.getStartedButton.setOnClickListener {
-            startActivity(Intent(this, AllPagesActivity::class.java))
+        AnalyticsUtil.getNotificationPermission(this)
+        setOnClickActions()
+    }
+
+    private fun setOnClickActions() {
+        binding.apply {
+            getStartedButton.setOnClickListener {
+                AnalyticsUtil.getStartedEvent()
+                startActivity(Intent(this@SplashActivity, AllPagesActivity::class.java))
+            }
+            signInButton.setOnClickListener {
+                AnalyticsUtil.updateNetmeraUser()
+                AnalyticsUtil.signInEvent()
+            }
         }
     }
 }
