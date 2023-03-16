@@ -8,7 +8,6 @@ import com.netmera.NetmeraConfiguration
 import com.netmera.netmerafintech.utils.FIREBASE_SENDER_ID
 import com.netmera.netmerafintech.utils.NETMERA_API_KEY
 import com.netmera.nmfcm.NMFCMProviderInitializer
-import com.netmera.nmhms.NMHMSProviderInitializer
 
 class ImpactFintechApp: Application() {
 
@@ -21,7 +20,6 @@ class ImpactFintechApp: Application() {
 
         AppInitializer.getInstance(this).run {
             initializeComponent(NMFCMProviderInitializer::class.java)
-            initializeComponent(NMHMSProviderInitializer::class.java)
         }
 
         val configBuilder = NetmeraConfiguration.Builder()

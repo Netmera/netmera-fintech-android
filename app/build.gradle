@@ -54,11 +54,9 @@ dependencies {
 
     implementation 'com.netmera:nmcore:3.9.11'
     implementation 'com.netmera:nmfcm:3.9.4'
-    implementation 'com.netmera:nmhms:3.9.5'
 }
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 
 apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.huawei.agconnect'

@@ -6,14 +6,12 @@ buildscript {
     }
     repositories {
         google()
-        maven {url 'https://developer.huawei.com/repo/'}
         mavenCentral()
     }
     dependencies {
 
         classpath 'com.android.tools.build:gradle:4.2.2'
         classpath 'com.google.gms:google-services:4.3.10'
-        classpath 'com.huawei.agconnect:agcp:1.6.3.300'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -27,7 +25,6 @@ plugins {
 allprojects {
     repositories {
         google()
-        maven {url 'https://developer.huawei.com/repo/'}
         maven { url "https://release.netmera.com/release/android" }
         mavenCentral()
     }
