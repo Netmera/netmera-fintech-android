@@ -11,6 +11,7 @@ import android.os.Bundle
 import com.netmera.netmerafintech.ui.all_pages.AllPagesActivity
 import com.netmera.netmerafintech.databinding.ActivitySplashBinding
 import com.netmera.netmerafintech.utils.AnalyticsUtil
+import com.netmera.netmerafintech.utils.toast
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -35,5 +36,6 @@ class SplashActivity : AppCompatActivity() {
                 AnalyticsUtil.signInEvent()
             }
         }
+        binding.signInButton.setOnClickListener { toast("Sign in event was called") }
     }
 }

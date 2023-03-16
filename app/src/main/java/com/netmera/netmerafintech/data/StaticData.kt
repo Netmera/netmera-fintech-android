@@ -34,26 +34,36 @@ object StaticData {
         Favorites(
             0,
             R.drawable.contact_red,
+            "4163",
+            "Jones",
             "Sarah",
         ),
         Favorites(
             1,
             R.drawable.avatar_curly_boy,
+            "9373",
+            "Paul",
             "Sam",
         ),
         Favorites(
             2,
             R.drawable.contact_blue,
+            "0956",
+            "Henrique",
             "Adam",
         ),
         Favorites(
             3,
             R.drawable.contact_pink,
+            "4592",
+            "Clyburn",
             "Cynthia",
         ),
         Favorites(
             4,
             null,
+            "9932",
+            "James",
             "Daniel",
         ),
     )
