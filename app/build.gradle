@@ -13,7 +13,8 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
+        buildConfigField("String", "FIREBASE_SENDER_ID", "\"151965488535\"")
+        buildConfigField("String", "NETMERA_API_KEY", "\"RH9qH4AIng0xmH-dqrh3SYTSU3Kw3OrQpqAkyF-u6YOgwJJt_7n55WtPYT3ak-U_\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -51,7 +52,11 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    implementation 'com.netmera:nmcore:3.9.11'
+    implementation 'com.netmera:nmfcm:3.9.4'
 }
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'com.google.gms.google-services'
