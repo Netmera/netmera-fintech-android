@@ -1,3 +1,6 @@
+/*
+* Copyright (c) 2023 Netmera.
+*/
 package com.netmera.netmerafintech.utils
 
 import com.google.firebase.analytics.ktx.analytics
@@ -19,8 +22,10 @@ object AnalyticsUtil {
     private const val PAYMENT_TRANSFER = "payment_transfer"
     private const val PURCHASE = "purchase"
     private const val SIGN_IN = "sign_in"
+    private const val SIGN_OUT = "sign_out"
     private const val TRANSACTION_ID = "transaction_id"
 
+    //region GET STARTED EVENT
     fun getStartedEvent() {
         getStartedNetmeraEvent()
         getStartedFirebaseEvent()
@@ -37,7 +42,9 @@ object AnalyticsUtil {
         event.setGetStarted(true)
         Netmera.sendEvent(event)
     }
+    //endregion
 
+    //region MANAGE EVENT
     fun manageEvent() {
         manageNetmeraEvent()
         manageFirebaseEvent()
@@ -54,7 +61,9 @@ object AnalyticsUtil {
         event.setAccount("2183")
         Netmera.sendEvent(event)
     }
+    //endregion
 
+    //region PAYMENT DETAIL EVENT
     fun paymentDetailEvent(index: Int) {
         paymentDetailNetmeraEvent(index)
         paymentDetailFirebaseEvent(index)
@@ -71,7 +80,9 @@ object AnalyticsUtil {
         event.setTransactionId(index)
         Netmera.sendEvent(event)
     }
+    //endregion
 
+    //region PAYMENT TRANSFER EVENT
     fun paymentTransferEvent(whoToTransfer: String) {
         paymentTransferNetmeraEvent(whoToTransfer)
         paymentTransferFirebaseEvent(whoToTransfer)
@@ -88,7 +99,9 @@ object AnalyticsUtil {
         event.setWho(whoToTransfer)
         Netmera.sendEvent(event)
     }
+    //endregion
 
+    //region PURCHASE EVENT
     fun purchaseEvent(amount: String, message: String?) {
         purchaseNetmeraEvent(amount, message)
         purchaseFirebaseEvent(amount, message)
@@ -109,7 +122,9 @@ object AnalyticsUtil {
         event.setMessage(message)
         Netmera.sendEvent(event)
     }
+    //endregion
 
+    //region SIGN IN EVENT
     fun signInEvent() {
         signInNetmeraEvent()
         signInFirebaseEvent()
@@ -117,7 +132,7 @@ object AnalyticsUtil {
 
     private fun signInFirebaseEvent() {
         firebaseAnalytics.logEvent(SIGN_IN) {
-            param(SIGN_IN, "true")
+            param(SIGN_IN, "")
         }
     }
 
@@ -126,6 +141,24 @@ object AnalyticsUtil {
         event.setSignIn(true)
         Netmera.sendEvent(event)
     }
+    //endregion
+
+    //region SIGN OUT EVENT
+    fun signOutEvent() {
+        signOutNetmeraEvent()
+        signOutFirebaseEvent()
+    }
+
+    private fun signOutFirebaseEvent() {
+        firebaseAnalytics.logEvent(SIGN_OUT) {
+            param(SIGN_OUT, "")
+        }
+    }
+
+    private fun signOutNetmeraEvent() {
+        Netmera.sendEvent(SignOutEvent())
+    }
+    //endregion
 
     fun updateNetmeraUser() {
         val netmerauser = NMImpactFintechUser()
