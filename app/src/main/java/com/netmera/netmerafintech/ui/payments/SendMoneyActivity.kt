@@ -83,7 +83,7 @@ class SendMoneyActivity : AppCompatActivity() {
             backButton.setOnClickListener { finish() }
             changeButton.setOnClickListener{ toast("Change event was called") }
             sendButton.setOnClickListener {
-                if (amount.text.toString() != "" || amount.text.toString() != "0.00") {
+                if (amount.text.toString() != "" && amount.text.toString() != "0.00") {
                     AnalyticsUtil.purchaseEvent(amount.text.toString(), message.text.toString())
                     toast("Send money event was called")
                 } else {

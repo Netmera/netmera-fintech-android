@@ -28,7 +28,7 @@ class HomeFragment: Fragment() {
         ManageCardActivity.start(requireActivity(), card)
     }
     private val onTransactionClick = { transaction: Transaction ->
-        transaction.transactionId?.let { AnalyticsUtil.paymentDetailEvent(it) }
+        AnalyticsUtil.paymentDetailEvent(transaction.transactionId)
         TransactionDetailActivity.start(requireActivity(), transaction)
     }
 

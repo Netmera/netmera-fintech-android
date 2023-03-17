@@ -33,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(Intent(this@SplashActivity, AllPagesActivity::class.java))
             }
             signInButton.setOnClickListener {
-                AnalyticsUtil.updateNetmeraUser()
+                AnalyticsUtil.updateUser()
                 AnalyticsUtil.signInEvent()
                 toast("Sign in event was called")
             }
