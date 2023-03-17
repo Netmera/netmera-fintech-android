@@ -11,6 +11,7 @@ import com.netmera.netmerafintech.R
 import com.netmera.netmerafintech.data.CardType
 import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.databinding.ActivityManageCardBinding
+import com.netmera.netmerafintech.utils.AnalyticsUtil
 import com.netmera.netmerafintech.utils.parcelable
 import com.netmera.netmerafintech.utils.toast
 
@@ -54,15 +55,21 @@ class ManageCardActivity: AppCompatActivity() {
                 CardType.YELLOW.value -> cardView.setImageResource(R.drawable.yellow_card)
                 else -> cardView.setImageResource(R.drawable.blue_card)
             }
-            setOnClickActions()
+            setOnClickActions(card)
         }
     }
 
-    private fun setOnClickActions() {
+    private fun setOnClickActions(card: Card) {
         binding.apply {
             backButton.setOnClickListener { finish() }
-            freezeCardLayout.setOnClickListener { toast("Freeze card event was called.") }
-            forgotYourPinLayout.setOnClickListener { toast("Forgot your pin event was called.") }
+            freezeCardLayout.setOnClickListener {
+                AnalyticsUtil.freezeCardEvent(card)
+                toast("Freeze card event was called.")
+            }
+            forgotYourPinLayout.setOnClickListener {
+                AnalyticsUtil.forgotYourPinEvent()
+                toast("Forgot your pin event was called.")
+            }
             settingsLayout.setOnClickListener { toast("Settings event was called.") }
             supportLayout.setOnClickListener { toast( "Support event was called.") }
         }

@@ -8,6 +8,7 @@ import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
 import com.netmera.Netmera
 import com.netmera.netmerafintech.Netmera.Events.*
+import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.data.model.NMImpactFintechUser
 
 object AnalyticsUtil {
@@ -15,6 +16,8 @@ object AnalyticsUtil {
 
     private const val ACCOUNT = "account"
     private const val AMOUNT = "amount"
+    private const val FORGOT_PIN = "forgot_pin"
+    private const val FREEZE_CARD = "freeze_card"
     private const val GET_STARTED = "get_started"
     private const val MANAGE = "manage"
     private const val MESSAGE = "message"
@@ -25,6 +28,42 @@ object AnalyticsUtil {
     private const val SIGN_OUT = "sign_out"
     private const val TRANSACTION_ID = "transaction_id"
 
+    //region FORGOT PIN EVENT
+    fun forgotYourPinEvent() {
+        forgotYourPinNetmeraEvent()
+        forgotYourPinFirebaseEvent()
+    }
+
+    private fun forgotYourPinFirebaseEvent() {
+        firebaseAnalytics.logEvent(FORGOT_PIN) {
+            param(FORGOT_PIN, "")
+        }
+    }
+
+    private fun forgotYourPinNetmeraEvent() {
+        Netmera.sendEvent(ForgotYourPinEvent())
+    }
+    //endregion
+
+    //region FREEZE CARD EVENT
+    fun freezeCardEvent(card: Card) {
+        freezeCardNetmeraEvent(card)
+        freezeCardFirebaseEvent(card)
+    }
+
+    private fun freezeCardFirebaseEvent(card: Card) {
+        firebaseAnalytics.logEvent(FREEZE_CARD) {
+            param(FREEZE_CARD, card.cardId.toString())
+        }
+    }
+
+    private fun freezeCardNetmeraEvent(card: Card) {
+        val event = FreezeCardEvent()
+        event.setCardId(card.cardId.toString())
+        Netmera.sendEvent(event)
+    }
+    //endregion
+
     //region GET STARTED EVENT
     fun getStartedEvent() {
         getStartedNetmeraEvent()
@@ -33,14 +72,12 @@ object AnalyticsUtil {
 
     private fun getStartedFirebaseEvent() {
         firebaseAnalytics.logEvent(GET_STARTED) {
-            param(GET_STARTED, "true")
+            param(GET_STARTED, "")
         }
     }
 
     private fun getStartedNetmeraEvent() {
-        val event = GetStartedEvent()
-        event.setGetStarted(true)
-        Netmera.sendEvent(event)
+        Netmera.sendEvent(GetStartedEvent())
     }
     //endregion
 
@@ -137,9 +174,7 @@ object AnalyticsUtil {
     }
 
     private fun signInNetmeraEvent() {
-        val event = SignInEvent()
-        event.setSignIn(true)
-        Netmera.sendEvent(event)
+        Netmera.sendEvent(SignInEvent())
     }
     //endregion
 
