@@ -35,7 +35,11 @@ class TransactionDetailActivity: AppCompatActivity() {
         binding = ActivityTransactionDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val transaction: Transaction? = intent.extras?.parcelable(ARG_TRANSACTION)
+        val bundle: Bundle? = intent.extras
+        bundle?.let {
+            it.classLoader = TransactionDetailActivity::class.java.classLoader
+        }
+        val transaction: Transaction? = bundle?.parcelable(ARG_TRANSACTION)
         transaction?.let {
             initViews(it)
         } ?: run {

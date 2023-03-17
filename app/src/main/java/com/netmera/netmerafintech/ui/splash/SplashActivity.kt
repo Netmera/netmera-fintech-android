@@ -35,8 +35,8 @@ class SplashActivity : AppCompatActivity() {
             signInButton.setOnClickListener {
                 AnalyticsUtil.updateNetmeraUser()
                 AnalyticsUtil.signInEvent()
+                toast("Sign in event was called")
             }
         }
-        binding.signInButton.setOnClickListener { toast("Sign in event was called") }
     }
 }

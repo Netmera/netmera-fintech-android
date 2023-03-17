@@ -29,7 +29,11 @@ class SendMoneyActivity : AppCompatActivity() {
         binding = ActivitySendMoneyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val favorite: Favorites? = intent.extras?.parcelable(ARG_SEND_MONEY)
+        val bundle: Bundle? = intent.extras
+        bundle?.let{
+            it.classLoader = SendMoneyActivity::class.java.classLoader
+        }
+        val favorite: Favorites? = bundle?.parcelable(ARG_SEND_MONEY)
         favorite?.let {
             initViews(it)
         } ?: run {
@@ -75,7 +79,14 @@ class SendMoneyActivity : AppCompatActivity() {
         binding.apply {
             backButton.setOnClickListener { finish() }
             changeButton.setOnClickListener{ toast("Change event was called") }
-            sendButton.setOnClickListener { toast("Send money event was called") }
+            sendButton.setOnClickListener {
+                if (amount.text.toString() != "" || amount.text.toString() != "0.00") {
+                    AnalyticsUtil.purchaseEvent(amount.text.toString(), message.text.toString())
+                    toast("Send money event was called")
+                } else {
+                    toast("You need to enter an amount")
+                }
+            }
         }
 
     }

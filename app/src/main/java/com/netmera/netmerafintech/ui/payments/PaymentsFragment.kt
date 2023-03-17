@@ -16,6 +16,7 @@ import com.netmera.netmerafintech.data.model.Contact
 import com.netmera.netmerafintech.data.model.Favorites
 import com.netmera.netmerafintech.databinding.FragmentPaymentsBinding
 import com.netmera.netmerafintech.ui.decorators.DividerItemDecorator
+import com.netmera.netmerafintech.utils.AnalyticsUtil
 import com.netmera.netmerafintech.utils.toast
 
 class PaymentsFragment: Fragment() {
@@ -27,6 +28,7 @@ class PaymentsFragment: Fragment() {
         toast("Contacts event was called")
     }
     private val onFavoritesClick = { favorite: Favorites ->
+        favorite.name?.let { AnalyticsUtil.paymentTransferEvent(it) }
         SendMoneyActivity.start(requireActivity(), favorite)
     }
 

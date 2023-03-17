@@ -30,7 +30,11 @@ class ManageCardActivity: AppCompatActivity() {
         binding = ActivityManageCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val card: Card? = intent.extras?.parcelable(ARG_CARD)
+        val bundle: Bundle? = intent.extras
+        bundle?.let {
+            it.classLoader = ManageCardActivity::class.java.classLoader
+        }
+        val card: Card? = bundle?.parcelable(ARG_CARD)
         card?.let {
             initViews(it)
         } ?: run {
