@@ -9,52 +9,54 @@ import com.netmera.netmerafintech.Netmera.Events.*
 import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.data.model.NMImpactFintechUser
 
-object NetmeraAnalyticsUtil {
+object NetmeraAnalyticsUtil: IAnalyticsUtil {
 
-    fun forgotYourPinEvent() {
+    override fun forgotYourPinEvent() {
         Netmera.sendEvent(ForgotYourPinEvent())
     }
 
-    fun freezeCardEvent(card: Card) {
+    override fun freezeCardEvent(card: Card) {
         val event = FreezeCardEvent()
         event.setCardId(card.cardId.toString())
         Netmera.sendEvent(event)
     }
 
-    fun getStartedEvent() {
+    override fun getStartedEvent() {
         Netmera.sendEvent(GetStartedEvent())
     }
 
-    fun manageEvent() {
+    override fun manageEvent() {
         val event = ManageEvent()
         event.setAccount("2183")
         Netmera.sendEvent(event)
     }
 
-    fun paymentDetailEvent(index: Int) {
-        val event = PaymentDetailEvent()
-        event.setTransactionId(index)
-        Netmera.sendEvent(event)
+    override fun paymentDetailEvent(index: Int?) {
+        index?.let {
+            val event = PaymentDetailEvent()
+            event.setTransactionId(it)
+            Netmera.sendEvent(event)
+        }
     }
 
-    fun paymentTransferEvent(whoToTransfer: String) {
+    override fun paymentTransferEvent(whoToTransfer: String) {
         val event = PaymentTransferEvent()
         event.setWho(whoToTransfer)
         Netmera.sendEvent(event)
     }
 
-    fun purchaseEvent(amount: String, message: String?) {
+    override fun purchaseEvent(amount: String, message: String?) {
         val event = PurchaseEvent()
         event.setAmount(amount)
         event.setMessage(message)
         Netmera.sendEvent(event)
     }
 
-    fun signInEvent() {
+    override fun signInEvent() {
         Netmera.sendEvent(SignInEvent())
     }
 
-    fun signOutEvent() {
+    override fun signOutEvent() {
         Netmera.sendEvent(SignOutEvent())
     }
 

@@ -5,51 +5,49 @@ package com.netmera.netmerafintech.utils
 
 import com.netmera.netmerafintech.data.model.Card
 
-object AnalyticsUtil {
+object AnalyticsUtil: IAnalyticsUtil {
 
-    fun forgotYourPinEvent() {
+    override fun forgotYourPinEvent() {
         NetmeraAnalyticsUtil.forgotYourPinEvent()
         FirebaseAnalyticsUtil.forgotYourPinEvent()
     }
 
-    fun freezeCardEvent(card: Card) {
+    override fun freezeCardEvent(card: Card) {
         NetmeraAnalyticsUtil.freezeCardEvent(card)
         FirebaseAnalyticsUtil.freezeCardEvent(card)
     }
 
-    fun getStartedEvent() {
+    override fun getStartedEvent() {
         NetmeraAnalyticsUtil.getStartedEvent()
         FirebaseAnalyticsUtil.getStartedEvent()
     }
 
-    fun manageEvent() {
+    override fun manageEvent() {
         NetmeraAnalyticsUtil.manageEvent()
         FirebaseAnalyticsUtil.manageEvent()
     }
 
-    fun paymentDetailEvent(index: Int?) {
-        index?.let {
-            NetmeraAnalyticsUtil.paymentDetailEvent(it)
-            FirebaseAnalyticsUtil.paymentDetailEvent(it)
-        }
+    override fun paymentDetailEvent(index: Int?) {
+        NetmeraAnalyticsUtil.paymentDetailEvent(index)
+        FirebaseAnalyticsUtil.paymentDetailEvent(index)
     }
 
-    fun paymentTransferEvent(whoToTransfer: String) {
+    override fun paymentTransferEvent(whoToTransfer: String) {
         NetmeraAnalyticsUtil.paymentTransferEvent(whoToTransfer)
         FirebaseAnalyticsUtil.paymentTransferEvent(whoToTransfer)
     }
 
-    fun purchaseEvent(amount: String, message: String?) {
+    override fun purchaseEvent(amount: String, message: String?) {
         NetmeraAnalyticsUtil.purchaseEvent(amount, message)
         FirebaseAnalyticsUtil.purchaseEvent(amount, message)
     }
 
-    fun signInEvent() {
+    override fun signInEvent() {
         NetmeraAnalyticsUtil.signInEvent()
         FirebaseAnalyticsUtil.signInEvent()
     }
 
-    fun signOutEvent() {
+    override fun signOutEvent() {
         NetmeraAnalyticsUtil.signOutEvent()
         FirebaseAnalyticsUtil.signOutEvent()
     }

@@ -9,7 +9,7 @@ import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
 import com.netmera.netmerafintech.data.model.Card
 
-object FirebaseAnalyticsUtil {
+object FirebaseAnalyticsUtil: IAnalyticsUtil {
     private var firebaseAnalytics = Firebase.analytics
 
     private const val ACCOUNT = "account"
@@ -27,43 +27,45 @@ object FirebaseAnalyticsUtil {
     private const val SIGN_OUT = "sign_out"
     private const val TRANSACTION_ID = "transaction_id"
 
-    fun forgotYourPinEvent() {
+    override fun forgotYourPinEvent() {
         firebaseAnalytics.logEvent(FORGOT_PIN) {
             param(FORGOT_PIN, "")
         }
     }
 
-    fun freezeCardEvent(card: Card) {
+    override fun freezeCardEvent(card: Card) {
         firebaseAnalytics.logEvent(FREEZE_CARD) {
             param(FREEZE_CARD, card.cardId.toString())
         }
     }
 
-    fun getStartedEvent() {
+    override fun getStartedEvent() {
         firebaseAnalytics.logEvent(GET_STARTED) {
             param(GET_STARTED, "")
         }
     }
 
-    fun manageEvent() {
+    override fun manageEvent() {
         firebaseAnalytics.logEvent(MANAGE) {
             param(ACCOUNT, "2183")
         }
     }
 
-    fun paymentDetailEvent(index: Int) {
-        firebaseAnalytics.logEvent(PAYMENT_DETAIL) {
-            param(TRANSACTION_ID, index.toString()) // does not accept integer
+    override fun paymentDetailEvent(index: Int?) {
+        index?.let {
+            firebaseAnalytics.logEvent(PAYMENT_DETAIL) {
+                param(TRANSACTION_ID, it.toString()) // does not accept integer
+            }
         }
     }
 
-    fun paymentTransferEvent(whoToTransfer: String) {
+    override fun paymentTransferEvent(whoToTransfer: String) {
         firebaseAnalytics.logEvent(PAYMENT_TRANSFER) {
             param(TRANSACTION_ID, whoToTransfer)
         }
     }
 
-    fun purchaseEvent(amount: String, message: String?) {
+    override fun purchaseEvent(amount: String, message: String?) {
         firebaseAnalytics.logEvent(PURCHASE) {
             param(AMOUNT, amount)
             message?.let {
@@ -72,13 +74,13 @@ object FirebaseAnalyticsUtil {
         }
     }
 
-    fun signInEvent() {
+    override fun signInEvent() {
         firebaseAnalytics.logEvent(SIGN_IN) {
             param(SIGN_IN, "")
         }
     }
 
-    fun signOutEvent() {
+    override fun signOutEvent() {
         firebaseAnalytics.logEvent(SIGN_OUT) {
             param(SIGN_OUT, "")
         }
