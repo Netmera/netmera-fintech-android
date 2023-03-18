@@ -60,7 +60,7 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         Netmera.sendEvent(SignOutEvent())
     }
 
-    fun updateUser() {
+    override fun userUpdate() {
         val netmerauser = NMImpactFintechUser()
         netmerauser.setUserId("burakaymaz@hotmail.com")
         netmerauser.setName("Burak")

@@ -16,4 +16,5 @@ interface IAnalyticsUtil {
     fun purchaseEvent(amount: String, message: String?)
     fun signInEvent()
     fun signOutEvent()
+    fun userUpdate()
 }

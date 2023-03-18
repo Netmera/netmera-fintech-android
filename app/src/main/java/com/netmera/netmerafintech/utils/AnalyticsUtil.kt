@@ -52,7 +52,8 @@ object AnalyticsUtil: IAnalyticsUtil {
         FirebaseAnalyticsUtil.signOutEvent()
     }
 
-    fun updateUser() {
-        NetmeraAnalyticsUtil.updateUser()
+    override fun userUpdate() {
+        NetmeraAnalyticsUtil.userUpdate()
+        FirebaseAnalyticsUtil.userUpdate()
     }
 }

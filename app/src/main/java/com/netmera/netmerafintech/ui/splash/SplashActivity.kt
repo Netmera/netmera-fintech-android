@@ -33,9 +33,9 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(Intent(this@SplashActivity, AllPagesActivity::class.java))
             }
             signInButton.setOnClickListener {
-                AnalyticsUtil.updateUser()
+                AnalyticsUtil.userUpdate()
                 AnalyticsUtil.signInEvent()
-                toast("Sign in event was called")
+                toast("User update was done and sign in event and was called")
             }
         }
     }

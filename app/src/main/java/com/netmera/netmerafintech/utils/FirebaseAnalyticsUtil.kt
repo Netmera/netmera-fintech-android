@@ -85,4 +85,8 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
             param(SIGN_OUT, "")
         }
     }
+
+    override fun userUpdate() {
+        firebaseAnalytics.setUserId("burakaymaz@hotmail.com")
+    }
 }
