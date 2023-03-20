@@ -40,7 +40,7 @@ class SplashActivity : AppCompatActivity() {
                 user.type = "black"
                 AnalyticsUtil.userUpdate(user)
                 AnalyticsUtil.signInEvent()
-                toast("User update was done and sign in event and was called")
+                toast("The user update is completed and the sign-In event was sent.")
             }
         }
     }
