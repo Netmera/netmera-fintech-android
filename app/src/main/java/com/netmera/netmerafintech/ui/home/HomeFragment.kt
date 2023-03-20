@@ -62,8 +62,14 @@ class HomeFragment: Fragment() {
     private fun setOnClickActions() {
         binding.apply {
             manageButton.setOnClickListener { onManageClick(card) }
-            settings.setOnClickListener { toast("Settings event was called.") }
-            seeAll.setOnClickListener { toast("See all event was called") }
+            settings.setOnClickListener {
+                AnalyticsUtil.appSettingsEvent()
+                toast("Settings event was sent.")
+            }
+            seeAll.setOnClickListener {
+                AnalyticsUtil.seeAllEvent()
+                toast("See all event was sent")
+            }
         }
     }
 

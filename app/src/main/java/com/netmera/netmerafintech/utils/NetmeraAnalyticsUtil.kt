@@ -12,6 +12,26 @@ import com.netmera.netmerafintech.data.model.NMImpactFintechUser
 
 object NetmeraAnalyticsUtil: IAnalyticsUtil {
 
+    override fun addNotesEvent() {
+        Netmera.sendEvent(AddNotesEvent())
+    }
+
+    override fun appSettingsEvent() {
+        Netmera.sendEvent(AppSettingsEvent())
+    }
+
+    override fun cardSettingsEvent() {
+        Netmera.sendEvent(CardSettingsEvent())
+    }
+
+    override fun changeEvent() {
+        Netmera.sendEvent(ChangeEvent())
+    }
+
+    override fun contactsEvent() {
+        Netmera.sendEvent(ContactsEvent())
+    }
+
     override fun forgotYourPinEvent() {
         Netmera.sendEvent(ForgotYourPinEvent())
     }
@@ -32,6 +52,10 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         Netmera.sendEvent(event)
     }
 
+    override fun nearbyEvent() {
+        Netmera.sendEvent(NearbyEvent())
+    }
+
     override fun paymentDetailEvent(index: Int?) {
         index?.let {
             val event = PaymentDetailEvent()
@@ -40,10 +64,16 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         }
     }
 
-    override fun paymentTransferEvent(whoToTransfer: String) {
-        val event = PaymentTransferEvent()
-        event.setWho(whoToTransfer)
-        Netmera.sendEvent(event)
+    override fun paymentTransferEvent(whoToTransfer: String?) {
+        whoToTransfer?.let {
+            val event = PaymentTransferEvent()
+            event.setWho(it)
+            Netmera.sendEvent(event)
+        }
+    }
+
+    override fun paySomeoneEvent() {
+        Netmera.sendEvent(PaySomeoneEvent())
     }
 
     override fun purchaseEvent(amount: String, message: String?) {
@@ -53,12 +83,32 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         Netmera.sendEvent(event)
     }
 
+    override fun requestMoneyEvent() {
+        Netmera.sendEvent(RequestMoneyEvent())
+    }
+
+    override fun seeAllEvent() {
+        Netmera.sendEvent(SeeAllEvent())
+    }
+
+    override fun searchForPayeesEvent() {
+        Netmera.sendEvent(SearchForPayeesEvent())
+    }
+
     override fun signInEvent() {
         Netmera.sendEvent(SignInEvent())
     }
 
     override fun signOutEvent() {
         Netmera.sendEvent(SignOutEvent())
+    }
+
+    override fun somethingWrongEvent() {
+        Netmera.sendEvent(SomethingWrongEvent())
+    }
+
+    override fun supportEvent() {
+        Netmera.sendEvent(SupportEvent())
     }
 
     override fun userUpdate(user: ImpactFintechUser) {

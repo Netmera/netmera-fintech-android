@@ -8,6 +8,31 @@ import com.netmera.netmerafintech.data.model.ImpactFintechUser
 
 object AnalyticsUtil: IAnalyticsUtil {
 
+    override fun addNotesEvent() {
+        NetmeraAnalyticsUtil.addNotesEvent()
+        FirebaseAnalyticsUtil.addNotesEvent()
+    }
+
+    override fun appSettingsEvent() {
+        NetmeraAnalyticsUtil.appSettingsEvent()
+        FirebaseAnalyticsUtil.appSettingsEvent()
+    }
+
+    override fun cardSettingsEvent() {
+        NetmeraAnalyticsUtil.cardSettingsEvent()
+        FirebaseAnalyticsUtil.cardSettingsEvent()
+    }
+
+    override fun changeEvent() {
+        NetmeraAnalyticsUtil.changeEvent()
+        FirebaseAnalyticsUtil.changeEvent()
+    }
+
+    override fun contactsEvent() {
+        NetmeraAnalyticsUtil.contactsEvent()
+        FirebaseAnalyticsUtil.contactsEvent()
+    }
+
     override fun forgotYourPinEvent() {
         NetmeraAnalyticsUtil.forgotYourPinEvent()
         FirebaseAnalyticsUtil.forgotYourPinEvent()
@@ -28,19 +53,44 @@ object AnalyticsUtil: IAnalyticsUtil {
         FirebaseAnalyticsUtil.manageEvent()
     }
 
+    override fun nearbyEvent() {
+        NetmeraAnalyticsUtil.nearbyEvent()
+        FirebaseAnalyticsUtil.nearbyEvent()
+    }
+
     override fun paymentDetailEvent(index: Int?) {
         NetmeraAnalyticsUtil.paymentDetailEvent(index)
         FirebaseAnalyticsUtil.paymentDetailEvent(index)
     }
 
-    override fun paymentTransferEvent(whoToTransfer: String) {
+    override fun paymentTransferEvent(whoToTransfer: String?) {
         NetmeraAnalyticsUtil.paymentTransferEvent(whoToTransfer)
         FirebaseAnalyticsUtil.paymentTransferEvent(whoToTransfer)
+    }
+
+    override fun paySomeoneEvent() {
+        NetmeraAnalyticsUtil.paySomeoneEvent()
+        FirebaseAnalyticsUtil.paySomeoneEvent()
     }
 
     override fun purchaseEvent(amount: String, message: String?) {
         NetmeraAnalyticsUtil.purchaseEvent(amount, message)
         FirebaseAnalyticsUtil.purchaseEvent(amount, message)
+    }
+
+    override fun requestMoneyEvent() {
+        NetmeraAnalyticsUtil.requestMoneyEvent()
+        FirebaseAnalyticsUtil.requestMoneyEvent()
+    }
+
+    override fun seeAllEvent() {
+        NetmeraAnalyticsUtil.seeAllEvent()
+        FirebaseAnalyticsUtil.seeAllEvent()
+    }
+
+    override fun searchForPayeesEvent() {
+        NetmeraAnalyticsUtil.searchForPayeesEvent()
+        FirebaseAnalyticsUtil.searchForPayeesEvent()
     }
 
     override fun signInEvent() {
@@ -51,6 +101,16 @@ object AnalyticsUtil: IAnalyticsUtil {
     override fun signOutEvent() {
         NetmeraAnalyticsUtil.signOutEvent()
         FirebaseAnalyticsUtil.signOutEvent()
+    }
+
+    override fun somethingWrongEvent() {
+        NetmeraAnalyticsUtil.somethingWrongEvent()
+        FirebaseAnalyticsUtil.somethingWrongEvent()
+    }
+
+    override fun supportEvent() {
+        NetmeraAnalyticsUtil.supportEvent()
+        FirebaseAnalyticsUtil.supportEvent()
     }
 
     override fun userUpdate(user: ImpactFintechUser) {

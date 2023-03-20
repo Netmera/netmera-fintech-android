@@ -32,6 +32,7 @@ class SplashActivity : AppCompatActivity() {
         binding.apply {
             getStartedButton.setOnClickListener {
                 AnalyticsUtil.getStartedEvent()
+                toast("Get started event was sent", true)
                 startActivity(Intent(this@SplashActivity, AllPagesActivity::class.java))
             }
             signInButton.setOnClickListener {
