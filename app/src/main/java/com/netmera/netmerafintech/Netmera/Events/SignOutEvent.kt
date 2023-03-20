@@ -6,12 +6,12 @@ package com.netmera.netmerafintech.Netmera.Events
 import com.netmera.NetmeraEvent
 
 
-class GetStartedEvent : NetmeraEvent() {
+class SignOutEvent : NetmeraEvent() {
     override fun eventCode(): String {
         return EVENT_CODE
     }
 
     companion object {
-        private const val EVENT_CODE = "radgk"
+        private const val EVENT_CODE = "okvvx"
     }
 }

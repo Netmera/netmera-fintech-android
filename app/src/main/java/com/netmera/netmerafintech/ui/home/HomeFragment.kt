@@ -15,6 +15,7 @@ import com.netmera.netmerafintech.data.CardType
 import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.data.model.Transaction
 import com.netmera.netmerafintech.databinding.FragmentHomeBinding
+import com.netmera.netmerafintech.utils.AnalyticsUtil
 import com.netmera.netmerafintech.utils.toast
 
 class HomeFragment: Fragment() {
@@ -23,9 +24,11 @@ class HomeFragment: Fragment() {
     private var card: Card = Card(CardType.BLUE.value)
 
     private val onManageClick = { card: Card ->
+        AnalyticsUtil.manageEvent()
         ManageCardActivity.start(requireActivity(), card)
     }
     private val onTransactionClick = { transaction: Transaction ->
+        AnalyticsUtil.paymentDetailEvent(transaction.transactionId)
         TransactionDetailActivity.start(requireActivity(), transaction)
     }
 
