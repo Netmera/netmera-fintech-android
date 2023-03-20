@@ -5,6 +5,7 @@
 package com.netmera.netmerafintech.utils
 
 import com.netmera.netmerafintech.data.model.Card
+import com.netmera.netmerafintech.data.model.ImpactFintechUser
 
 interface IAnalyticsUtil {
     fun forgotYourPinEvent()
@@ -16,5 +17,5 @@ interface IAnalyticsUtil {
     fun purchaseEvent(amount: String, message: String?)
     fun signInEvent()
     fun signOutEvent()
-    fun userUpdate()
+    fun userUpdate(user: ImpactFintechUser)
 }

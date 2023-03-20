@@ -8,6 +8,7 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.ktx.Firebase
 import com.netmera.netmerafintech.data.model.Card
+import com.netmera.netmerafintech.data.model.ImpactFintechUser
 
 object FirebaseAnalyticsUtil: IAnalyticsUtil {
     private var firebaseAnalytics = Firebase.analytics
@@ -86,7 +87,7 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
         }
     }
 
-    override fun userUpdate() {
-        firebaseAnalytics.setUserId("burakaymaz@hotmail.com")
+    override fun userUpdate(user: ImpactFintechUser) {
+        firebaseAnalytics.setUserId(user.userId)
     }
 }

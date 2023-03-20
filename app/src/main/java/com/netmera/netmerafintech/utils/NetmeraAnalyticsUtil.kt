@@ -7,6 +7,7 @@ package com.netmera.netmerafintech.utils
 import com.netmera.Netmera
 import com.netmera.netmerafintech.Netmera.Events.*
 import com.netmera.netmerafintech.data.model.Card
+import com.netmera.netmerafintech.data.model.ImpactFintechUser
 import com.netmera.netmerafintech.data.model.NMImpactFintechUser
 
 object NetmeraAnalyticsUtil: IAnalyticsUtil {
@@ -60,11 +61,11 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         Netmera.sendEvent(SignOutEvent())
     }
 
-    override fun userUpdate() {
-        val netmerauser = NMImpactFintechUser()
-        netmerauser.setUserId("burakaymaz@hotmail.com")
-        netmerauser.setName("Burak")
-        netmerauser.setType("black")
-        Netmera.updateUser(netmerauser)
+    override fun userUpdate(user: ImpactFintechUser) {
+        val netmeraUser = NMImpactFintechUser()
+        user.userName.let { netmeraUser.setName(it) }
+        user.userId.let { netmeraUser.setUserId(it) }
+        user.type.let { netmeraUser.setType(it) }
+        Netmera.updateUser(netmeraUser)
     }
 }

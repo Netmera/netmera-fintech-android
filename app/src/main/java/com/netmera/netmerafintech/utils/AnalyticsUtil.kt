@@ -4,6 +4,7 @@
 package com.netmera.netmerafintech.utils
 
 import com.netmera.netmerafintech.data.model.Card
+import com.netmera.netmerafintech.data.model.ImpactFintechUser
 
 object AnalyticsUtil: IAnalyticsUtil {
 
@@ -52,8 +53,8 @@ object AnalyticsUtil: IAnalyticsUtil {
         FirebaseAnalyticsUtil.signOutEvent()
     }
 
-    override fun userUpdate() {
-        NetmeraAnalyticsUtil.userUpdate()
-        FirebaseAnalyticsUtil.userUpdate()
+    override fun userUpdate(user: ImpactFintechUser) {
+        NetmeraAnalyticsUtil.userUpdate(user)
+        FirebaseAnalyticsUtil.userUpdate(user)
     }
 }
