@@ -75,8 +75,8 @@ class ManageCardActivity: AppCompatActivity() {
                 toast("Settings event was sent.")
             }
             supportLayout.setOnClickListener {
-                AnalyticsUtil.supportEvent()
-                toast( "Support event was sent.")
+                AnalyticsUtil.contactUsForSupportEvent()
+                toast( "Contact us for support event was sent.")
             }
         }
     }

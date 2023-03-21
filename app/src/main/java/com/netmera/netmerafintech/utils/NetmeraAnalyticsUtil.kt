@@ -24,12 +24,16 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         Netmera.sendEvent(CardSettingsEvent())
     }
 
-    override fun changeEvent() {
-        Netmera.sendEvent(ChangeEvent())
+    override fun changeAccountEvent() {
+        Netmera.sendEvent(ChangeAccountEvent())
     }
 
     override fun contactsEvent() {
         Netmera.sendEvent(ContactsEvent())
+    }
+
+    override fun contactUsForSupportEvent() {
+        Netmera.sendEvent(ContactUsForSupportEvent())
     }
 
     override fun forgotYourPinEvent() {
@@ -46,9 +50,9 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         Netmera.sendEvent(GetStartedEvent())
     }
 
-    override fun manageEvent() {
-        val event = ManageEvent()
-        event.setAccount("2183")
+    override fun manageAccountEvent(lastFourDigits: String) {
+        val event = ManageAccountEvent()
+        event.setAccount(lastFourDigits)
         Netmera.sendEvent(event)
     }
 
@@ -103,10 +107,6 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
 
     override fun somethingWrongEvent() {
         Netmera.sendEvent(SomethingWrongEvent())
-    }
-
-    override fun supportEvent() {
-        Netmera.sendEvent(SupportEvent())
     }
 
     override fun userUpdate(user: ImpactFintechUser) {

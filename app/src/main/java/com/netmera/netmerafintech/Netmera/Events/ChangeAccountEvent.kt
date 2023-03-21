@@ -7,7 +7,7 @@ package com.netmera.netmerafintech.Netmera.Events
 import com.netmera.NetmeraEvent
 
 
-class ChangeEvent : NetmeraEvent() {
+class ChangeAccountEvent : NetmeraEvent() {
     override fun eventCode(): String {
         return EVENT_CODE
     }

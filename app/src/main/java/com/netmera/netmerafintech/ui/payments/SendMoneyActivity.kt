@@ -82,8 +82,8 @@ class SendMoneyActivity : AppCompatActivity() {
         binding.apply {
             backButton.setOnClickListener { finish() }
             changeButton.setOnClickListener{
-                AnalyticsUtil.changeEvent()
-                toast("Change event was sent")
+                AnalyticsUtil.changeAccountEvent()
+                toast("Change account event was sent")
             }
             sendButton.setOnClickListener {
                 if (amount.text.toString() != "" && amount.text.toString() != "0.00") {

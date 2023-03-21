@@ -21,10 +21,10 @@ import com.netmera.netmerafintech.utils.toast
 class HomeFragment: Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
-    private var card: Card = Card(CardType.BLUE.value)
+    private var card: Card = Card(CardType.BLUE.value, "2183")
 
     private val onManageClick = { card: Card ->
-        AnalyticsUtil.manageEvent()
+        AnalyticsUtil.manageAccountEvent(card.lastFourDigits)
         ManageCardActivity.start(requireActivity(), card)
     }
     private val onTransactionClick = { transaction: Transaction ->
@@ -86,7 +86,7 @@ class HomeFragment: Fragment() {
                 ) {}
 
                 override fun onPageSelected(position: Int) {
-                    card.cardId = position
+                    card = (viewModel.cardList.value?.get(position)) as Card
                 }
 
                 override fun onPageScrollStateChanged(state: Int) {}

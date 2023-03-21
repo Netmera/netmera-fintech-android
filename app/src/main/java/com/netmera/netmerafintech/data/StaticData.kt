@@ -12,9 +12,9 @@ import com.netmera.netmerafintech.data.model.Transaction
 
 object StaticData {
     fun getCards() = listOf(
-        Card(CardType.BLACK.value),
-        Card(CardType.BLUE.value),
-        Card(CardType.YELLOW.value),
+        Card(CardType.BLACK.value, "5569"),
+        Card(CardType.BLUE.value, "2183"),
+        Card(CardType.YELLOW.value, "8530"),
     )
 
     fun getContacts() = listOf(

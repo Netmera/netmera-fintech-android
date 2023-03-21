@@ -23,14 +23,19 @@ object AnalyticsUtil: IAnalyticsUtil {
         FirebaseAnalyticsUtil.cardSettingsEvent()
     }
 
-    override fun changeEvent() {
-        NetmeraAnalyticsUtil.changeEvent()
-        FirebaseAnalyticsUtil.changeEvent()
+    override fun changeAccountEvent() {
+        NetmeraAnalyticsUtil.changeAccountEvent()
+        FirebaseAnalyticsUtil.changeAccountEvent()
     }
 
     override fun contactsEvent() {
         NetmeraAnalyticsUtil.contactsEvent()
         FirebaseAnalyticsUtil.contactsEvent()
+    }
+
+    override fun contactUsForSupportEvent() {
+        NetmeraAnalyticsUtil.contactUsForSupportEvent()
+        FirebaseAnalyticsUtil.contactUsForSupportEvent()
     }
 
     override fun forgotYourPinEvent() {
@@ -48,9 +53,9 @@ object AnalyticsUtil: IAnalyticsUtil {
         FirebaseAnalyticsUtil.getStartedEvent()
     }
 
-    override fun manageEvent() {
-        NetmeraAnalyticsUtil.manageEvent()
-        FirebaseAnalyticsUtil.manageEvent()
+    override fun manageAccountEvent(lastFourDigits: String) {
+        NetmeraAnalyticsUtil.manageAccountEvent(lastFourDigits)
+        FirebaseAnalyticsUtil.manageAccountEvent(lastFourDigits)
     }
 
     override fun nearbyEvent() {
@@ -106,11 +111,6 @@ object AnalyticsUtil: IAnalyticsUtil {
     override fun somethingWrongEvent() {
         NetmeraAnalyticsUtil.somethingWrongEvent()
         FirebaseAnalyticsUtil.somethingWrongEvent()
-    }
-
-    override fun supportEvent() {
-        NetmeraAnalyticsUtil.supportEvent()
-        FirebaseAnalyticsUtil.supportEvent()
     }
 
     override fun userUpdate(user: ImpactFintechUser) {

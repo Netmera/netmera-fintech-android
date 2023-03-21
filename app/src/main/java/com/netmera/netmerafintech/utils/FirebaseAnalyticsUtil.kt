@@ -18,12 +18,13 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
     private const val AMOUNT = "amount"
     private const val APP_SETTINGS = "app_settings"
     private const val CARD_SETTINGS = "card_settings"
-    private const val CHANGE = "change"
+    private const val CHANGE_ACCOUNT = "change_account"
     private const val CONTACTS = "contacts"
+    private const val CONTACT_US_FOR_SUPPORT = "contact_us_for_support"
     private const val FORGOT_PIN = "forgot_pin"
     private const val FREEZE_CARD = "freeze_card"
     private const val GET_STARTED = "get_started"
-    private const val MANAGE = "manage"
+    private const val MANAGE_ACCOUNT = "manage_account"
     private const val MESSAGE = "message"
     private const val NEARBY = "nearby"
     private const val PAYMENT_DETAIL = "payment_detail"
@@ -36,7 +37,6 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
     private const val SIGN_IN = "sign_in"
     private const val SIGN_OUT = "sign_out"
     private const val SOMETHING_WRONG = "something_wrong"
-    private const val SUPPORT = "support"
     private const val TRANSACTION_ID = "transaction_id"
 
     override fun addNotesEvent() {
@@ -51,12 +51,16 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
         firebaseAnalytics.logEvent(CARD_SETTINGS, null)
     }
 
-    override fun changeEvent() {
-        firebaseAnalytics.logEvent(CHANGE, null)
+    override fun changeAccountEvent() {
+        firebaseAnalytics.logEvent(CHANGE_ACCOUNT, null)
     }
 
     override fun contactsEvent() {
         firebaseAnalytics.logEvent(CONTACTS, null)
+    }
+
+    override fun contactUsForSupportEvent() {
+        firebaseAnalytics.logEvent(CONTACT_US_FOR_SUPPORT, null)
     }
 
     override fun forgotYourPinEvent() {
@@ -73,9 +77,9 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
         firebaseAnalytics.logEvent(GET_STARTED, null)
     }
 
-    override fun manageEvent() {
-        firebaseAnalytics.logEvent(MANAGE) {
-            param(ACCOUNT, "2183")
+    override fun manageAccountEvent(lastFourDigits: String) {
+        firebaseAnalytics.logEvent(MANAGE_ACCOUNT) {
+            param(ACCOUNT, lastFourDigits)
         }
     }
 
@@ -132,10 +136,6 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
 
     override fun somethingWrongEvent() {
         firebaseAnalytics.logEvent(SOMETHING_WRONG, null)
-    }
-
-    override fun supportEvent() {
-        firebaseAnalytics.logEvent(SUPPORT, null)
     }
 
     override fun userUpdate(user: ImpactFintechUser) {

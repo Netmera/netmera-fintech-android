@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 import com.netmera.NetmeraEvent
 
 
-class ManageEvent : NetmeraEvent() {
+class ManageAccountEvent : NetmeraEvent() {
     @SerializedName("ea")
     private var account: String? = null
     override fun eventCode(): String {
