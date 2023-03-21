@@ -40,39 +40,27 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
     private const val TRANSACTION_ID = "transaction_id"
 
     override fun addNotesEvent() {
-        firebaseAnalytics.logEvent(ADD_NOTES) {
-            param(ADD_NOTES, "")
-        }
+        firebaseAnalytics.logEvent(ADD_NOTES, null)
     }
 
     override fun appSettingsEvent() {
-        firebaseAnalytics.logEvent(APP_SETTINGS) {
-            param(APP_SETTINGS, "")
-        }
+        firebaseAnalytics.logEvent(APP_SETTINGS, null)
     }
 
     override fun cardSettingsEvent() {
-        firebaseAnalytics.logEvent(CARD_SETTINGS) {
-            param(CARD_SETTINGS, "")
-        }
+        firebaseAnalytics.logEvent(CARD_SETTINGS, null)
     }
 
     override fun changeEvent() {
-        firebaseAnalytics.logEvent(CHANGE) {
-            param(CHANGE, "")
-        }
+        firebaseAnalytics.logEvent(CHANGE, null)
     }
 
     override fun contactsEvent() {
-        firebaseAnalytics.logEvent(CONTACTS) {
-            param(CONTACTS, "")
-        }
+        firebaseAnalytics.logEvent(CONTACTS, null)
     }
 
     override fun forgotYourPinEvent() {
-        firebaseAnalytics.logEvent(FORGOT_PIN) {
-            param(FORGOT_PIN, "")
-        }
+        firebaseAnalytics.logEvent(FORGOT_PIN, null)
     }
 
     override fun freezeCardEvent(card: Card) {
@@ -82,9 +70,7 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
     }
 
     override fun getStartedEvent() {
-        firebaseAnalytics.logEvent(GET_STARTED) {
-            param(GET_STARTED, "")
-        }
+        firebaseAnalytics.logEvent(GET_STARTED, null)
     }
 
     override fun manageEvent() {
@@ -94,9 +80,7 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
     }
 
     override fun nearbyEvent() {
-        firebaseAnalytics.logEvent(NEARBY) {
-            param(NEARBY, "")
-        }
+        firebaseAnalytics.logEvent(NEARBY, null)
     }
 
     override fun paymentDetailEvent(index: Int?) {
@@ -114,9 +98,7 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
     }
 
     override fun paySomeoneEvent() {
-        firebaseAnalytics.logEvent(PAY_SOMEONE) {
-            param(PAY_SOMEONE, "")
-        }
+        firebaseAnalytics.logEvent(PAY_SOMEONE, null)
     }
 
     override fun purchaseEvent(amount: String, message: String?) {
@@ -129,45 +111,31 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
     }
 
     override fun requestMoneyEvent() {
-        firebaseAnalytics.logEvent(REQUEST_MONEY) {
-            param(REQUEST_MONEY, "")
-        }
+        firebaseAnalytics.logEvent(REQUEST_MONEY, null)
     }
 
     override fun seeAllEvent() {
-        firebaseAnalytics.logEvent(SEE_ALL) {
-            param(SEE_ALL, "")
-        }
+        firebaseAnalytics.logEvent(SEE_ALL, null)
     }
 
     override fun searchForPayeesEvent() {
-        firebaseAnalytics.logEvent(SEARCH_FOR_PAYEES) {
-            param(SEARCH_FOR_PAYEES, "")
-        }
+        firebaseAnalytics.logEvent(SEARCH_FOR_PAYEES, null)
     }
 
     override fun signInEvent() {
-        firebaseAnalytics.logEvent(SIGN_IN) {
-            param(SIGN_IN, "")
-        }
+        firebaseAnalytics.logEvent(SIGN_IN, null)
     }
 
     override fun signOutEvent() {
-        firebaseAnalytics.logEvent(SIGN_OUT) {
-            param(SIGN_OUT, "")
-        }
+        firebaseAnalytics.logEvent(SIGN_OUT, null)
     }
 
     override fun somethingWrongEvent() {
-        firebaseAnalytics.logEvent(SOMETHING_WRONG) {
-            param(SOMETHING_WRONG, "")
-        }
+        firebaseAnalytics.logEvent(SOMETHING_WRONG, null)
     }
 
     override fun supportEvent() {
-        firebaseAnalytics.logEvent(SUPPORT) {
-            param(SUPPORT, "")
-        }
+        firebaseAnalytics.logEvent(SUPPORT, null)
     }
 
     override fun userUpdate(user: ImpactFintechUser) {
