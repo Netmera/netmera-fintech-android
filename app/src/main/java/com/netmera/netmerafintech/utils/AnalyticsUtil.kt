@@ -63,9 +63,9 @@ object AnalyticsUtil: IAnalyticsUtil {
         FirebaseAnalyticsUtil.paymentDetailEvent(index)
     }
 
-    override fun paymentTransferEvent(whoToTransfer: String?) {
-        NetmeraAnalyticsUtil.paymentTransferEvent(whoToTransfer)
-        FirebaseAnalyticsUtil.paymentTransferEvent(whoToTransfer)
+    override fun paymentTransferEvent(receiver: String) {
+        NetmeraAnalyticsUtil.paymentTransferEvent(receiver)
+        FirebaseAnalyticsUtil.paymentTransferEvent(receiver)
     }
 
     override fun paySomeoneEvent() {

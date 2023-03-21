@@ -19,7 +19,7 @@ interface IAnalyticsUtil {
     fun manageEvent()
     fun nearbyEvent()
     fun paymentDetailEvent(index: Int?)
-    fun paymentTransferEvent(whoToTransfer: String?)
+    fun paymentTransferEvent(receiver: String)
     fun paySomeoneEvent()
     fun purchaseEvent(amount: String, message: String?)
     fun requestMoneyEvent()

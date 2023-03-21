@@ -107,11 +107,9 @@ object FirebaseAnalyticsUtil: IAnalyticsUtil {
         }
     }
 
-    override fun paymentTransferEvent(whoToTransfer: String?) {
-        whoToTransfer?.let {
-            firebaseAnalytics.logEvent(PAYMENT_TRANSFER) {
-                param(TRANSACTION_ID, it)
-            }
+    override fun paymentTransferEvent(receiver: String) {
+        firebaseAnalytics.logEvent(PAYMENT_TRANSFER) {
+            param(TRANSACTION_ID, receiver)
         }
     }
 

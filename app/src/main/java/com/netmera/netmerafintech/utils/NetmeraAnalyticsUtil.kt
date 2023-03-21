@@ -64,12 +64,10 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         }
     }
 
-    override fun paymentTransferEvent(whoToTransfer: String?) {
-        whoToTransfer?.let {
-            val event = PaymentTransferEvent()
-            event.setWho(it)
-            Netmera.sendEvent(event)
-        }
+    override fun paymentTransferEvent(receiver: String) {
+        val event = PaymentTransferEvent()
+        event.setWho(receiver)
+        Netmera.sendEvent(event)
     }
 
     override fun paySomeoneEvent() {
