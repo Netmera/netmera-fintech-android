@@ -13,5 +13,5 @@ data class Favorites (
     var icon: Int?,
     var lastFourDigit: String? = "",
     var lastName: String? = "",
-    var name: String? = "",
+    var name: String = "",
 ): Parcelable
