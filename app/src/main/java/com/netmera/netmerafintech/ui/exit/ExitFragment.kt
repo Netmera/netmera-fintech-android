@@ -20,7 +20,7 @@ class ExitFragment: Fragment() {
     ): View? {
 
         AnalyticsUtil.signOutEvent()
-        toast("Sign out event was called")
+        toast("Sign out event was sent")
 
         // splash screen needs to be opened when exit tab is pressed, finishing activity doesn't add any screen onto stack
         requireActivity().finish()

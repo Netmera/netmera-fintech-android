@@ -64,14 +64,20 @@ class ManageCardActivity: AppCompatActivity() {
             backButton.setOnClickListener { finish() }
             freezeCardLayout.setOnClickListener {
                 AnalyticsUtil.freezeCardEvent(card)
-                toast("Freeze card event was called.")
+                toast("Freeze card event was sent.")
             }
             forgotYourPinLayout.setOnClickListener {
                 AnalyticsUtil.forgotYourPinEvent()
-                toast("Forgot your pin event was called.")
+                toast("Forgot your pin event was sent.")
             }
-            settingsLayout.setOnClickListener { toast("Settings event was called.") }
-            supportLayout.setOnClickListener { toast( "Support event was called.") }
+            settingsLayout.setOnClickListener {
+                AnalyticsUtil.cardSettingsEvent()
+                toast("Settings event was sent.")
+            }
+            supportLayout.setOnClickListener {
+                AnalyticsUtil.contactUsForSupportEvent()
+                toast( "Contact us for support event was sent.")
+            }
         }
     }
 }

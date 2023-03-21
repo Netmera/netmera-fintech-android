@@ -24,11 +24,11 @@ class PaymentsFragment: Fragment() {
     private lateinit var viewModel: PaymentsViewModel
 
     private val onContactsClick = { contact: Contact ->
-//        ContactDetailActivity.open(requireActivity(), contact) TODO open it after contact detail is created
-        toast("Contacts event was called")
+        AnalyticsUtil.contactsEvent()
+        toast("Contacts event was sent")
     }
     private val onFavoritesClick = { favorite: Favorites ->
-        favorite.name?.let { AnalyticsUtil.paymentTransferEvent(it) }
+        AnalyticsUtil.paymentTransferEvent(favorite.name)
         SendMoneyActivity.start(requireActivity(), favorite)
     }
 
@@ -67,10 +67,22 @@ class PaymentsFragment: Fragment() {
 
     private fun setOnClickActions() {
         binding.apply {
-            locationButtonContainer.setOnClickListener { toast("Nearby event was called.") }
-            paySomeoneLayout.setOnClickListener { toast("Pay someone event was called.") }
-            requestMoneyLayout.setOnClickListener { toast("Request money event was called.") }
-            searchBarCard.setOnClickListener { toast("Search for payees event was called.") }
+            locationButtonContainer.setOnClickListener {
+                AnalyticsUtil.nearbyEvent()
+                toast("Nearby event was sent.")
+            }
+            paySomeoneLayout.setOnClickListener {
+                AnalyticsUtil.paySomeoneEvent()
+                toast("Pay someone event was sent.")
+            }
+            requestMoneyLayout.setOnClickListener {
+                AnalyticsUtil.requestMoneyEvent()
+                toast("Request money event was sent.")
+            }
+            searchBarCard.setOnClickListener {
+                AnalyticsUtil.searchForPayeesEvent()
+                toast("Search for payees event was sent.")
+            }
         }
     }
 }

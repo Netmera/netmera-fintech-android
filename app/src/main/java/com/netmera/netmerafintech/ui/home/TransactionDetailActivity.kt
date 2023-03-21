@@ -6,12 +6,12 @@ package com.netmera.netmerafintech.ui.home
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.netmera.netmerafintech.data.model.Transaction
 import com.netmera.netmerafintech.databinding.ActivityTransactionDetailBinding
+import com.netmera.netmerafintech.utils.AnalyticsUtil
 import com.netmera.netmerafintech.utils.parcelable
 import com.netmera.netmerafintech.utils.toast
 
@@ -66,10 +66,12 @@ class TransactionDetailActivity: AppCompatActivity() {
 
             backButton.setOnClickListener { finish() }
             addNotesLayout.setOnClickListener {
-                toast("Add notes event was called.")
+                AnalyticsUtil.addNotesEvent()
+                toast("Add notes event was sent.")
             }
             somethingWrongLayout.setOnClickListener {
-                toast("Something wrong event was called.")
+                AnalyticsUtil.somethingWrongEvent()
+                toast("Something wrong event was sent.")
             }
         }
     }
