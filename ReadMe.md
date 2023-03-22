@@ -67,7 +67,7 @@ Please create an init-configuration using Netmera Configuration Builder as follo
 
 → Api key can be found in Netmera Panel → Developers → API → Sdk Api Key 
 
-```groovy
+```kotlin
 import android.app.Application
 import com.netmera.Netmera
 import com.netmera.NetmeraConfiguration
