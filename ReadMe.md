@@ -72,22 +72,26 @@ import android.app.Application
 import com.netmera.Netmera
 import com.netmera.NetmeraConfiguration
 
-class FintechApp: Application() {
+class FintechApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         val configBuilder = NetmeraConfiguration.Builder()
         configBuilder
-					.apiKey(<YOUR API KEY>)
-					.baseUrl(<YOUR BASE URL>)// On-premise only 
-          .firebaseSenderId(<YOUR SENDER ID>)
-					.huaweiSenderId(<YOUR SENDER ID>)
-          .logging(true)// It is recommended to turn off on release mode 
-					.nmInAppMessageActionCallbacks(NMInAppMessageActionCallbacks{...})// If you want to be notified of the received In-App Messages
-          .nmPushActionCallbacks(NMPushActionCallbacks{...})// If you want to be notified of the received Push Messages
-					.nmWebWidgetCallbacks(NMWebWidgetCallbacks{...})// If you want to take control of Web Widgets
-
+		.apiKey(<YOUR API KEY>)
+		.baseUrl(<YOUR BASE URL>)// On-premise only 
+                .firebaseSenderId(<YOUR SENDER ID>)
+		.huaweiSenderId(<YOUR SENDER ID>)
+		// It is recommended to turn off on release mode 
+                .logging(true)
+		// If you want to be notified of the received In-App Messages
+		.nmInAppMessageActionCallbacks(NMInAppMessageActionCallbacks{...})
+		// If you want to be notified of the received Push Messages
+                .nmPushActionCallbacks(NMPushActionCallbacks{...})
+		// If you want to take control of Web Widgets
+		.nmWebWidgetCallbacks(NMWebWidgetCallbacks{...})
+		
         Netmera.init(configBuilder.build(this))
     }
 }
