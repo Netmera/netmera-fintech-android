@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/gradientView"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintVertical_weight="7"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/linear_gradient_background"
@@ -21,7 +21,7 @@
         
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginTop="32dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lowerView"
-        app:layout_constraintVertical_weight="1"
+        app:layout_constraintVertical_weight="8"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/white"
@@ -93,7 +93,7 @@
             android:id="@+id/manageWalletView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/nunito_bold"
             android:letterSpacing="0.01"
             android:text="@string/manage_wallet"
@@ -118,14 +118,47 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manageWalletView"
-            app:layout_constraintBottom_toTopOf="@+id/buttonContainer"/>
+            app:layout_constraintBottom_toTopOf="@+id/emailInputCard"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/emailInputCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/buttonContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardCornerRadius="5dp"
+            android:outlineAmbientShadowColor="@color/card_bg_light_blue"
+            app:cardElevation="60dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="37dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
+                android:paddingStart="15dp"
+                android:hint="@string/email"
+                android:textColorHint="@color/gray"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:background="@color/card_bg_light_blue"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:textCursorDrawable="@color/black" />
+
+        </androidx.cardview.widget.CardView>
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/buttonContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/splashText"
+            android:layout_marginBottom="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -9,3 +9,4 @@ google-services.json
 .externalNativeBuild
 .cxx
 local.properties
+uploadkeystore.jks
