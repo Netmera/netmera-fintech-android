@@ -118,10 +118,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manageWalletView"
-            app:layout_constraintBottom_toTopOf="@+id/externalIdInputCard"/>
+            app:layout_constraintBottom_toTopOf="@+id/emailInputCard"/>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/externalIdInputCard"
+            android:id="@+id/emailInputCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/buttonContainer"
@@ -134,9 +134,10 @@
             android:layout_marginHorizontal="37dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/externalIdInput"
+                android:id="@+id/emailInput"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
                 android:paddingStart="15dp"
                 android:hint="@string/email"
                 android:textColorHint="@color/gray"

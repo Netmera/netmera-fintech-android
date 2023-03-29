@@ -27,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         AppUtils.getNotificationPermission(this)
         setOnClickActions()
-        binding.externalIdInput.setText(Netmera.getCurrentExternalId())
+        binding.emailInput.setText(Netmera.getCurrentExternalId())
     }
 
     private fun setOnClickActions() {
@@ -38,9 +38,9 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(Intent(this@SplashActivity, AllPagesActivity::class.java))
             }
             signInButton.setOnClickListener {
-                if (externalIdInput.text.toString() != "") {
+                if (emailInput.text.toString() != "") {
                     user.userName = "Burak"
-                    user.userId = externalIdInput.text.toString()
+                    user.userId = emailInput.text.toString()
                     user.type = "black"
                     AnalyticsUtil.userUpdate(user)
                     AnalyticsUtil.signInEvent()
