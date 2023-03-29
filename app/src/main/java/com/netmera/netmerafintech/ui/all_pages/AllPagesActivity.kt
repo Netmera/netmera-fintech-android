@@ -7,6 +7,7 @@ package com.netmera.netmerafintech.ui.all_pages
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.netmera.Netmera
 import com.netmera.netmerafintech.R
 import com.netmera.netmerafintech.ui.analytics.AnalyticsFragment
 import com.netmera.netmerafintech.databinding.ActivityAllpagesBinding
@@ -23,6 +24,7 @@ class AllPagesActivity : AppCompatActivity() {
         binding = ActivityAllpagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loadFragment(HomeFragment())
+        Netmera.enablePopupPresentation()
         setOnNavigationBarClickListener()
     }
 

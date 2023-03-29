@@ -8,6 +8,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.netmera.Netmera
 import com.netmera.netmerafintech.data.model.ImpactFintechUser
 import com.netmera.netmerafintech.ui.all_pages.AllPagesActivity
 import com.netmera.netmerafintech.databinding.ActivitySplashBinding
@@ -26,6 +27,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         AppUtils.getNotificationPermission(this)
         setOnClickActions()
+        binding.externalIdInput.setText(Netmera.getCurrentExternalId())
     }
 
     private fun setOnClickActions() {
@@ -36,12 +38,16 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(Intent(this@SplashActivity, AllPagesActivity::class.java))
             }
             signInButton.setOnClickListener {
-                user.userName = "Burak"
-                user.userId = "burakaymaz@hotmail.com"
-                user.type = "black"
-                AnalyticsUtil.userUpdate(user)
-                AnalyticsUtil.signInEvent()
-                toast("The user update is completed and the sign-In event was sent.")
+                if (externalIdInput.text.toString() != "") {
+                    user.userName = "Burak"
+                    user.userId = externalIdInput.text.toString()
+                    user.type = "black"
+                    AnalyticsUtil.userUpdate(user)
+                    AnalyticsUtil.signInEvent()
+                    toast("The user update is completed and the sign-In event was sent.")
+                } else {
+                    toast("Please enter an email.")
+                }
             }
         }
     }
