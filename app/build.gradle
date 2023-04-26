@@ -16,6 +16,7 @@ android {
         buildConfigField("String", "FIREBASE_SENDER_ID", "\"151965488535\"")
         buildConfigField("String", "NETMERA_API_KEY", "\"RH9qH4AIng0xmH-dqrh3SYTSU3Kw3OrQpqAkyF-u6YOgwJJt_7n55WtPYT3ak-U_\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resValue "bool", "netmera_use_default_deeplink_action", "true"
     }
 
     signingConfigs {

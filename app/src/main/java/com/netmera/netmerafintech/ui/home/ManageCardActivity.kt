@@ -6,11 +6,14 @@ package com.netmera.netmerafintech.ui.home
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.netmera.netmerafintech.R
 import com.netmera.netmerafintech.data.CardType
+import com.netmera.netmerafintech.data.StaticData
 import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.databinding.ActivityManageCardBinding
+import com.netmera.netmerafintech.ui.all_pages.AllPagesActivity
 import com.netmera.netmerafintech.utils.AnalyticsUtil
 import com.netmera.netmerafintech.utils.parcelable
 import com.netmera.netmerafintech.utils.toast
@@ -33,12 +36,14 @@ class ManageCardActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityManageCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val bundle: Bundle? = intent.extras
         bundle?.let {
             it.classLoader = ManageCardActivity::class.java.classLoader
         }
-        val card: Card? = bundle?.parcelable(ARG_CARD)
+
+        val card = intent?.data?.let { StaticData.getCards()[0] }
+            ?: bundle?.parcelable(ARG_CARD)
+
         card?.let {
             initViews(it)
         } ?: run {
@@ -59,9 +64,16 @@ class ManageCardActivity: AppCompatActivity() {
         }
     }
 
+    private fun onBackAction() {
+        intent?.data?.let {
+            startActivity(Intent(this@ManageCardActivity, AllPagesActivity::class.java))
+        }
+        finish()
+    }
+
     private fun setOnClickActions(card: Card) {
         binding.apply {
-            backButton.setOnClickListener { finish() }
+            backButton.setOnClickListener { onBackAction() }
             freezeCardLayout.setOnClickListener {
                 AnalyticsUtil.freezeCardEvent(card)
                 toast("Freeze card event was sent.")
@@ -70,6 +82,13 @@ class ManageCardActivity: AppCompatActivity() {
                 AnalyticsUtil.forgotYourPinEvent()
                 toast("Forgot your pin event was sent.")
             }
+            onBackPressedDispatcher.addCallback(
+                this@ManageCardActivity,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        onBackAction()
+                    }
+                })
             settingsLayout.setOnClickListener {
                 AnalyticsUtil.cardSettingsEvent()
                 toast("Settings event was sent.")
