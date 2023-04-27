@@ -31,6 +31,7 @@ class ManageCardActivity: AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityManageCardBinding
+    private var isComingFromDeeplink: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +42,13 @@ class ManageCardActivity: AppCompatActivity() {
             it.classLoader = ManageCardActivity::class.java.classLoader
         }
 
-        val card = intent?.data?.let { StaticData.getCards()[0] }
-            ?: bundle?.parcelable(ARG_CARD)
+        isComingFromDeeplink = intent?.data?.let { true } ?: false
+
+        val card = if (!isComingFromDeeplink) {
+            bundle?.parcelable(ARG_CARD)
+        } else {
+            StaticData.getCards()[0]
+        }
 
         card?.let {
             initViews(it)
@@ -65,9 +71,7 @@ class ManageCardActivity: AppCompatActivity() {
     }
 
     private fun onBackAction() {
-        intent?.data?.let {
-            startActivity(Intent(this@ManageCardActivity, AllPagesActivity::class.java))
-        }
+        if (isComingFromDeeplink) startActivity(Intent(this@ManageCardActivity, AllPagesActivity::class.java))
         finish()
     }
 

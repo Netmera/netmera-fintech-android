@@ -10,10 +10,7 @@ import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.netmera.netmerafintech.R
-import com.netmera.netmerafintech.data.CardType
 import com.netmera.netmerafintech.data.StaticData
-import com.netmera.netmerafintech.data.model.Card
 import com.netmera.netmerafintech.data.model.Transaction
 import com.netmera.netmerafintech.databinding.ActivityTransactionDetailBinding
 import com.netmera.netmerafintech.ui.all_pages.AllPagesActivity
@@ -35,6 +32,7 @@ class TransactionDetailActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityTransactionDetailBinding
+    private var isComingFromDeeplink: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +43,15 @@ class TransactionDetailActivity : AppCompatActivity() {
         bundle?.let {
             it.classLoader = TransactionDetailActivity::class.java.classLoader
         }
-        val transaction = intent?.data?.let {
+
+        isComingFromDeeplink = intent?.data?.let { true } ?: false
+
+        val transaction: Transaction? = if (!isComingFromDeeplink) {
+            bundle?.parcelable(ARG_TRANSACTION)
+        } else {
             StaticData.getTransactions()[0]
-        } ?: bundle?.parcelable(ARG_TRANSACTION)
+        }
+
         transaction?.let {
             initViews(it)
         } ?: run {
@@ -108,9 +112,7 @@ class TransactionDetailActivity : AppCompatActivity() {
     }
 
     private fun onBackAction() {
-        intent?.data?.let {
-            startActivity(Intent(this@TransactionDetailActivity, AllPagesActivity::class.java))
-        }
+        if (isComingFromDeeplink) startActivity(Intent(this@TransactionDetailActivity, AllPagesActivity::class.java))
         finish()
     }
 }
