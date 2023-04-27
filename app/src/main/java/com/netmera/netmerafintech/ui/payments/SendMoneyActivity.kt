@@ -8,9 +8,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import com.netmera.netmerafintech.R
+import com.netmera.netmerafintech.data.StaticData
 import com.netmera.netmerafintech.data.model.Favorites
 import com.netmera.netmerafintech.databinding.ActivitySendMoneyBinding
+import com.netmera.netmerafintech.ui.all_pages.AllPagesActivity
 import com.netmera.netmerafintech.utils.*
 
 class SendMoneyActivity : AppCompatActivity() {
@@ -26,6 +29,7 @@ class SendMoneyActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivitySendMoneyBinding
+    private var isComingFromDeeplink: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +37,18 @@ class SendMoneyActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val bundle: Bundle? = intent.extras
-        bundle?.let{
+        bundle?.let {
             it.classLoader = SendMoneyActivity::class.java.classLoader
         }
-        val favorite: Favorites? = bundle?.parcelable(ARG_SEND_MONEY)
+
+        isComingFromDeeplink = intent?.data?.let { true } ?: false
+
+        val favorite: Favorites? = if (!isComingFromDeeplink) {
+            bundle?.parcelable(ARG_SEND_MONEY)
+        } else {
+            StaticData.getFavorites()[0]
+        }
+
         favorite?.let {
             initViews(it)
         } ?: run {
@@ -78,13 +90,25 @@ class SendMoneyActivity : AppCompatActivity() {
         }
     }
 
+    private fun onBackAction() {
+        if (isComingFromDeeplink) startActivity(Intent(this@SendMoneyActivity, AllPagesActivity::class.java))
+        finish()
+    }
+
     private fun setOnClickActions() {
         binding.apply {
-            backButton.setOnClickListener { finish() }
+            backButton.setOnClickListener { onBackAction() }
             changeButton.setOnClickListener{
                 AnalyticsUtil.changeAccountEvent()
                 toast("Change account event was sent")
             }
+            onBackPressedDispatcher.addCallback(
+                this@SendMoneyActivity,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        onBackAction()
+                    }
+                })
             sendButton.setOnClickListener {
                 if (amount.text.toString() != "" && amount.text.toString() != "0.00") {
                     AnalyticsUtil.purchaseEvent(amount.text.toString(), message.text.toString())

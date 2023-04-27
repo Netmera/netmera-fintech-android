@@ -39,16 +39,40 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.home.ManageCardActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="impactfintech" android:host="managecard"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.home.TransactionDetailActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="impactfintech" android:host="transactiondetail"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.payments.SendMoneyActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="impactfintech" android:host="sendmoney"/>
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
