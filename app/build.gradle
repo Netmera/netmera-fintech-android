@@ -74,8 +74,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    implementation 'com.netmera:nmcore:3.9.11'
-    implementation 'com.netmera:nmfcm:3.9.4'
+    implementation 'com.netmera:nmcore:3.12.0'
+    implementation 'com.netmera:nmfcm:3.12.0'
 }
 
 apply plugin: 'kotlin-android'
