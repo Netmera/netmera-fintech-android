@@ -4,7 +4,10 @@
 /local.properties
 .DS_Store
 /build
+app/release
 /captures
+google-services.json
 .externalNativeBuild
 .cxx
 local.properties
+uploadkeystore.jks

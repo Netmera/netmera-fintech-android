@@ -12,15 +12,36 @@ android {
         minSdk 21
         targetSdk 33
         versionCode 1
-        versionName "1.0"
-
+        versionName "1.0.3"
+        buildConfigField("String", "FIREBASE_SENDER_ID", "\"151965488535\"")
+        buildConfigField("String", "NETMERA_API_KEY", "\"RH9qH4AIng0xmH-dqrh3SYTSU3Kw3OrQpqAkyF-u6YOgwJJt_7n55WtPYT3ak-U_\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        resValue "bool", "netmera_use_default_deeplink_action", "true"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("../app/uploadkeystore.jks")
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
+        release {
+            storeFile file('../app/uploadkeystore.jks')
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
@@ -42,13 +63,21 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation platform('com.google.firebase:firebase-bom:31.2.3')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     def lifecycle_version = "2.5.1"
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    implementation 'com.netmera:nmcore:3.12.0'
+    implementation 'com.netmera:nmfcm:3.12.0'
 }
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'com.google.gms.google-services'

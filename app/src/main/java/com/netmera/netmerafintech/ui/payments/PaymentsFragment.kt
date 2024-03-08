@@ -16,16 +16,20 @@ import com.netmera.netmerafintech.data.model.Contact
 import com.netmera.netmerafintech.data.model.Favorites
 import com.netmera.netmerafintech.databinding.FragmentPaymentsBinding
 import com.netmera.netmerafintech.ui.decorators.DividerItemDecorator
+import com.netmera.netmerafintech.utils.AnalyticsUtil
+import com.netmera.netmerafintech.utils.toast
 
 class PaymentsFragment: Fragment() {
     private lateinit var binding: FragmentPaymentsBinding
     private lateinit var viewModel: PaymentsViewModel
 
     private val onContactsClick = { contact: Contact ->
-//        ContactDetailActivity.open(requireActivity(), contact) TODO open it after contact detail is created
+        AnalyticsUtil.contactsEvent()
+        toast("Contacts event was sent")
     }
     private val onFavoritesClick = { favorite: Favorites ->
-//        FavoriteDetailActivity.open(requireActivity(), favorite) TODO open it after favorite detail is created
+        AnalyticsUtil.paymentTransferEvent(favorite.name)
+        SendMoneyActivity.start(requireActivity(), favorite)
     }
 
     override fun onCreateView(
@@ -34,6 +38,7 @@ class PaymentsFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPaymentsBinding.inflate(layoutInflater, container, false)
+        setOnClickActions()
 
         // code block below sets a divider between recyclerview items
         context?.let {
@@ -57,6 +62,27 @@ class PaymentsFragment: Fragment() {
 
         viewModel.contactsList.observe(viewLifecycleOwner) {
             binding.contactsRecyclerView.adapter = ContactRecyclerAdapter(it, onContactsClick, requireContext())
+        }
+    }
+
+    private fun setOnClickActions() {
+        binding.apply {
+            locationButtonContainer.setOnClickListener {
+                AnalyticsUtil.nearbyEvent()
+                toast("Nearby event was sent.")
+            }
+            paySomeoneLayout.setOnClickListener {
+                AnalyticsUtil.paySomeoneEvent()
+                toast("Pay someone event was sent.")
+            }
+            requestMoneyLayout.setOnClickListener {
+                AnalyticsUtil.requestMoneyEvent()
+                toast("Request money event was sent.")
+            }
+            searchBarCard.setOnClickListener {
+                AnalyticsUtil.searchForPayeesEvent()
+                toast("Search for payees event was sent.")
+            }
         }
     }
 }
