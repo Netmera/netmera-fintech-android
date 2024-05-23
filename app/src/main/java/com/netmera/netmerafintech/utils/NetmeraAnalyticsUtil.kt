@@ -113,7 +113,6 @@ object NetmeraAnalyticsUtil: IAnalyticsUtil {
         val netmeraUser = NMImpactFintechUser()
         user.userName.let { netmeraUser.setName(it) }
         user.userId.let { netmeraUser.setUserId(it) }
-        user.type.let { netmeraUser.setType(it) }
         Netmera.updateUser(netmeraUser)
     }
 }
