@@ -6,6 +6,7 @@ package com.netmera.netmerafintech
 import android.app.Application
 import com.netmera.Netmera
 import com.netmera.NetmeraConfiguration
+import com.netmera.netmerafintech.utils.UserDefaultsHelper
 
 class ImpactFintechApp: Application() {
 
@@ -19,5 +20,6 @@ class ImpactFintechApp: Application() {
             .logging(true)
 
         Netmera.init(configBuilder.build(this));
+        UserDefaultsHelper.init(this)
     }
 }

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.netmera.Netmera
 import com.netmera.netmerafintech.R
-import com.netmera.netmerafintech.ui.analytics.AnalyticsFragment
+import com.netmera.netmerafintech.ui.profile.ProfileFragment
 import com.netmera.netmerafintech.databinding.ActivityAllpagesBinding
 import com.netmera.netmerafintech.ui.exit.ExitFragment
 import com.netmera.netmerafintech.ui.history.HistoryFragment
@@ -50,7 +50,7 @@ class AllPagesActivity : AppCompatActivity() {
                     true
                 }
                 R.id.analytics -> {
-                    loadFragment(AnalyticsFragment())
+                    loadFragment(ProfileFragment())
                     true
                 }
                 R.id.exit -> {
