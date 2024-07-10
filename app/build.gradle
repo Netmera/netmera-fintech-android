@@ -13,6 +13,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0.3"
+        buildConfigField("String", "HUAWEI_SENDER_ID", "\"111469075\"")
         buildConfigField("String", "FIREBASE_SENDER_ID", "\"151965488535\"")
         buildConfigField("String", "NETMERA_API_KEY", "\"RH9qH4AIng0xmH-dqrh3SYTSU3Kw3OrQpqAkyF-u6YOgwJJt_7n55WtPYT3ak-U_\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -76,8 +77,10 @@ dependencies {
 
     implementation 'com.netmera:nmcore:3.12.0'
     implementation 'com.netmera:nmfcm:3.12.0'
+    implementation 'com.netmera:nmhms:3.11.0'
 }
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.huawei.agconnect'
