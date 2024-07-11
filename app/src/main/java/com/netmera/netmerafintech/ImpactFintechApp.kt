@@ -17,6 +17,7 @@ class ImpactFintechApp: Application() {
 
         configBuilder.apiKey(BuildConfig.NETMERA_API_KEY)
             .firebaseSenderId(BuildConfig.FIREBASE_SENDER_ID)
+            .huaweiSenderId(BuildConfig.HUAWEI_SENDER_ID)
             .logging(true)
 
         Netmera.init(configBuilder.build(this));
