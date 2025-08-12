@@ -15,7 +15,7 @@ android {
         versionName "1.0.5"
         buildConfigField("String", "HUAWEI_SENDER_ID", "\"111469075\"")
         buildConfigField("String", "FIREBASE_SENDER_ID", "\"151965488535\"")
-        buildConfigField("String", "NETMERA_API_KEY", "\"5NSiHLriUyGzecOpO_gua_CvGiLG7W_3lXYl-vpf7wRxulFPzRBs3g\"")
+        buildConfigField("String", "NETMERA_API_KEY", "\"RH9qH4AIng0xmH-dqrh3SYTSU3Kw3OrQpqAkyF-u6YOgwJJt_7n55WtPYT3ak-U_\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resValue "bool", "netmera_use_default_deeplink_action", "true"
     }
