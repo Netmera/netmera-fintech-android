@@ -11,8 +11,8 @@ android {
         applicationId "com.netmera.netmerafintech"
         minSdk 24
         targetSdk 34
-        versionCode 4
-        versionName "1.0.4"
+        versionCode 5
+        versionName "1.0.6"
         buildConfigField("String", "HUAWEI_SENDER_ID", "\"111469075\"")
         buildConfigField("String", "FIREBASE_SENDER_ID", "\"151965488535\"")
         buildConfigField("String", "NETMERA_API_KEY", "\"RH9qH4AIng0xmH-dqrh3SYTSU3Kw3OrQpqAkyF-u6YOgwJJt_7n55WtPYT3ak-U_\"")
@@ -54,6 +54,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        buildConfig = true
     }
 }
 
